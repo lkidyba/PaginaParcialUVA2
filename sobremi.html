@@ -1,104 +1,73 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi sitio web personal | Sobre Mí</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Mi sitio web personal</h1>
-            <nav>
-                <ul class="main-nav">
-                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-                    <li><a href="avisos.html"><i class="fas fa-bell"></i> Avisos</a></li>
-                    <li><a href="sobremi.html" class="active"><i class="fas fa-user"></i> Sobre Mí</a></li>
-                    <li><a href="materias2025.html"><i class="fas fa-book"></i> Materias 2025</a></li>
-                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
-                </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <main class="container">
-        <section class="about-me">
-            <h2>Sobre Mí</h2>
-            
-            <div class="profile">
-                <div class="profile-image">
-                    <img src="imagenyo.jpg" alt="Mi foto de perfil">
-                </div>
-                <div class="profile-info">
-                    <h3>Datos Personales</h3>
-                    <ul>
-                        <li><strong>Nombre completo:</strong> Kidyba Lautaro Agustín</li>
-                        <li><strong>Carrera:</strong> Licenciatura en Sistemas de Información</li>
-                        <li><strong>Universidad:</strong> UADE</li>
-                        <li><strong>Cuatrimestre actual:</strong> 1er cuatrimestre UADE 2025</li>
-                    </ul>
-                </div>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Sobre-mi</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="min-h-screen flex flex-col items-center bg-[url(img/fondo.png)]"> 
+         
+        <nav class="flex flex-row flex-nowrap justify-between content-center bg-zinc-800 w-full border-b-4 border-zinc-600">
+
+            <header class="text-4xl font-thin p-5 text-slate-100">Mi pagina web</header>          
+
+            <div class="p-5 content-center space-x-8">
+                <a href="index.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Home</a>
+                <a href="avisos.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Avisos</a>
+                <a href="sobre mi.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Sobre mi</a>
+                <a href="materias.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Materias 2025</a>
+                <a href="contacto.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Contacto</a>
             </div>
+        </nav>
+        
+        <main class="max-w-6xl w-full flex flex-col align-self-middle flex-grow bg-zinc-100 px-20 py-5 border-r-4 border-l-2 border-zinc-300"> 
             
-            <div class="interests">
-                <h3>Intereses y Pasiones</h3>
-                <p>Me apasiona la programación tanto en el frontend como en el backend. La ciberseguridad es mi verdadera pasión, y dedico gran parte de mi tiempo libre a estudiar y practicar técnicas de protección de sistemas y redes.</p>
+            <section class="flex flex-row flex-wrap justify-center items-center space-x-8">
+
+                <div class="p-3">
+                    <img src="imgenyo.jpeg" alt="Mi foto de perfil" class="rounded-xl">
+                </div>
+
+                <div class="max-w-md">
+                    <h1 class="text-xl font-thin pb-2">Este soy Yo:</h1>
+                    <p class="">Nombre completo:</strong> Kidyba Lautaro Agustín. </p>
+                    <p class="">Carrera:</strong> Licenciatura en Sistemas de Información. </p>
+                    <p class="">Universidad:</strong> UADE. </p>
+                    <p class="">Intereses y Pasiones:</strong> Me apasiona la programación tanto en el frontend como en el backend. La ciberseguridad es mi verdadera pasión, y dedico gran parte de mi tiempo libre a estudiar y practicar técnicas de protección de sistemas y redes.. </p>
+                </div>
                 
-                <div class="interests-grid">
-                    <div class="interest-item">
-                        <i class="fas fa-code"></i>
-                        <h4>Desarrollo Frontend</h4>
-                        <p>HTML, CSS, JavaScript.</p>
-                    </div>
-                    <div class="interest-item">
-                        <i class="fas fa-server"></i>
-                        <h4>Desarrollo Backend</h4>
-                        <p>Python, Java, bases de datos y arquitecturas de servidor.</p>
-                    </div>
-                    <div class="interest-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Ciberseguridad</h4>
-                        <p>Pentesting, análisis de vulnerabilidades y seguridad en redes.</p>
-                    </div>
-                    <div class="interest-item">
-                        <i class="fas fa-football-ball"></i>
-                        <h4>Rugby</h4>
-                        <p>Practico rugby, es mi deporte favorito y entreno hace 9 años.</p>
-                    </div>
-                    <div class="interest-item">
-                        <i class="fas fa-dumbbell"></i>
-                        <h4>Gimnasio</h4>
-                        <p>lo complemento con rugby y hago Entrenamiento de fuerza y resistencia fisica.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="goals">
-                <h3>Metas Académicas</h3>
-                <p>Mi objetivo principal es especializarme en ciberseguridad y desarrollo de software seguro, hago esta carrera porque quiero aprender cosas que no he visto aun. Planeo completar mi licenciatura con un enfoque en seguridad informática.</p>
-                <div class="progress-container">
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Kidyba Lautaro Agustín - Licenciatura en Sistemas de Información</p>
-        </div>
-    </footer>
 
-    <script>
-        // Script para el menú responsive
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.main-nav').classList.toggle('show');
-        });
-    </script>
-</body>
+
+                
+            </section>
+
+        </main>
+        
+
+
+
+
+        <footer class="flex flex-row flex-nowrap justify-around content-center bg-zinc-800 w-full border-t-4 border-zinc-600">
+            <p class="font-thin  text-center text-white p-5">Martín Alejo Citoler <br>
+                Diseño Desarrollo Web (15130)<br>
+                Uade <br>
+            </p>
+
+            <p class="font-thin  text-center text-white p-5">Prof. Patricia Carina Litovicius <br>
+                Diseño Desarrollo Web (15130)<br>
+                Uade <br>
+            </p>
+        </footer>
+
+
+
+
+
+    </body>
+
+
 </html>
