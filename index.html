@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi sitio web personal | Inicio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mi sitio web personal</h1>
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="avisos.html"><i class="fas fa-bell"></i> Avisos</a></li>
+                    <li><a href="sobremi.html"><i class="fas fa-user"></i> Sobre Mí</a></li>
+                    <li><a href="materias2025.html"><i class="fas fa-book"></i> Materias 2025</a></li>
+                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Bienvenido mi sitio web personal</h2>
+            <p>Aca esta disponible toda la información sobre mi cursada actual y mis actividades.</p>
+        </section>
+
+        <section class="schedule">
+            <h2>Horario de Materias</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Materia</th>
+                            <th>Día y Horario</th>
+                            <th>Modalidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Arquitectura de Computadores</td>
+                            <td>Lunes 18:30 - 21:00</td>
+                            <td>Virtual</td>
+                        </tr>
+                        <tr>
+                            <td>Sistemas de Información</td>
+                            <td>Martes 18:30 - 21:00</td>
+                            <td>Virtual</td>
+                        </tr>
+                        <tr>
+                            <td>Introducción a la Algoritmia</td>
+                            <td>Miércoles 18:30 - 21:00</td>
+                            <td>Virtual</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing</td>
+                            <td>Jueves 18:30 - 21:00</td>
+                            <td>Virtual</td>
+                        </tr>
+                        <tr>
+                            <td>Diseño y Desarrollo Web</td>
+                            <td>Viernes 18:30 - 21:00</td>
+                            <td>Virtual</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="quick-access">
+            <h2>Accesos Rápidos</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Próximas entregas</h3>
+                    <a href="avisos.html" class="btn">Ver tareas</a>
+                </div>
+                <div class="card">
+                    <i class="fas fa-calendar"></i>
+                    <h3>Calendario</h3>
+                    <a href="materias2025.html" class="btn">Ver materias</a>
+                </div>
+                <div class="card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Mi perfil</h3>
+                    <a href="sobremi.html" class="btn">Conocer más</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Kidyba Lautaro Agustín - Licenciatura en Sistemas de Información</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para el menú responsive
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
