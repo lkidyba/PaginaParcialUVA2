@@ -1,108 +1,73 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi sitio web personal | Contacto</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Mi sitio web personal</h1>
-            <nav>
-                <ul class="main-nav">
-                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-                    <li><a href="avisos.html"><i class="fas fa-bell"></i> Avisos</a></li>
-                    <li><a href="sobremi.html"><i class="fas fa-user"></i> Sobre Mí</a></li>
-                    <li><a href="materias2025.html"><i class="fas fa-book"></i> Materias 2025</a></li>
-                    <li><a href="contacto.html" class="active"><i class="fas fa-envelope"></i> Contacto</a></li>
-                </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <main class="container">
-        <section class="contact">
-            <h2>Contacto</h2>
-            <p>Para contactarte conmigo, completa el siguiente formulario.</p>
-            
-            <div class="contact-container">
-                <div class="contact-form">
-                    <h3>Formulario de Contacto</h3>
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Correo electrónico</label>
-                            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="asunto">Asunto</label>
-                            <input type="text" id="asunto" name="asunto" placeholder="Asunto del mensaje" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Enviar mensaje
-                        </button>
-                    </form>
-                </div>
-                
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <ul>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>lautaro.kidyba@universidad.edu.ar</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+54 299 423-5124</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Neuquen, Argentina</span>
-                        </li>
-                    </ul>
-                    
-                    <h3>Redes Sociales</h3>
-                    <div class="social-links">
-                        <a href="https://github.com/lkidyba" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://ar.linkedin.com/in/agustin-kidyba-b2240b309" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Contacto</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="min-h-screen flex flex-col items-center bg-[url(img/fondo.png)]"> 
+         
+        <nav class="flex flex-row flex-nowrap justify-between content-center bg-zinc-800 w-full border-b-4 border-zinc-600">
+
+            <header class="text-4xl font-thin p-5 text-slate-100">Mi sitio web</header>          
+
+            <div class="p-5 content-center space-x-8">
+                <a href="index.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Home</a>
+                <a href="avisos.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Avisos</a>
+                <a href="sobre mi.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Sobre-mi</a>
+                <a href="materias.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Materias-2025</a>
+                <a href="contacto.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Contacto</a>
             </div>
-        </section>
-    </main>
+        </nav>
+        
+        <main class="max-w-6xl w-full flex flex-col align-self-middle flex-grow bg-zinc-100 px-20 py-5 border-r-4 border-l-2 border-zinc-300"> 
+            
+            <section class="bg-zinc-300 p-3 flex flex-col w-full  m-auto rounded-xl">
+                <h1 class="text-2xl mb-3 mx-2">Contacto</h1>
+                <form class="flex flex-col align-middle ">
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Kidyba Lautaro Agustín - Licenciatura en Sistemas de Información</p>
-        </div>
-    </footer>
+                    <div class="flex-row flex">
+                        <label for="nombre" class="mx-2 my-1 text-center">Nombre completo:</label>
+                        <input type="text" id="nombre" placeholder="Juan Palo" autocomplete="off" required class="bg-zinc-100 text-gray-900 text-sm rounded-2xl block w-full py-1.5 px-3.5">
 
-    <script>
-        // Script para el menú responsive
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.main-nav').classList.toggle('show');
-        });
-    </script>
-</body>
+
+
+
+                        <label for="mail" class="mx-2 my-1 text-center">Mail personal:</label>
+                        <input type="email" id="mail" placeholder="juanpalo@mail.com"  autocomplete="on" required class="bg-zinc-100 text-gray-900 text-sm rounded-2xl block w-full py-1.5 px-3.5">
+                    </div>
+
+
+
+                    <label for="asunto" class="mx-2 mt-2">Asunto (razon):</label>
+                    <input type="text" id="asunto" autocomplete="off" required class=" bg-zinc-100 text-gray-900 text-sm rounded-2xl block w-full py-1.5 px-3.5">
+
+                    <textarea name="" id="mensaje" required rows=8 class="my-4 bg-zinc-100 text-gray-900 text-sm rounded-2xl block w-full py-1.5 px-3.5"></textarea>
+
+                    <button type="submit" class="bg-zinc-200 rounded-xl w-20 p-1 hover:bg-zinc-100 active:bg-zinc-800 active:text-slate-100">Enviar</button>
+
+                </form> 
+            
+            </section>
+ 
+        </main>
+        
+        <footer class="flex flex-row flex-nowrap justify-around content-center bg-zinc-800 w-full border-t-4 border-zinc-600">
+
+            <p class="font-thin  text-center text-white p-5">Prof.Patricia Carina Litovicius <br>
+                Diseño Desarrollo Web (15130)<br>
+                UADE <br>
+            </p>
+        </footer>
+
+
+
+
+
+    </body>
+
+
 </html>
