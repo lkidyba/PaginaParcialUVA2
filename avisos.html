@@ -1,96 +1,88 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi sitio web personal | Avisos</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Mi sitio web personal</h1>
-            <nav>
-                <ul class="main-nav">
-                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-                    <li><a href="avisos.html" class="active"><i class="fas fa-bell"></i> Avisos</a></li>
-                    <li><a href="sobremi.html"><i class="fas fa-user"></i> Sobre Mí</a></li>
-                    <li><a href="materias2025.html"><i class="fas fa-book"></i> Materias 2025</a></li>
-                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
-                </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Avisos</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
 
-    <main class="container">
-        <section class="announcements">
-            <h2>Avisos y Recordatorios</h2>
-            <p>Aca estan disponibles todas las tareas pendientes y fechas importantes organizadas por materia.</p>
-            
-            <div class="tasks-container">
-                <div class="task-group">
-                    <h3>Arquitectura de Computadores</h3>
-                    <ul class="task-list">
-                        <li><i class="fas fa-clipboard-check"></i> 05/05 - Tarea a entregar: circuitos logicos</li>
-                        <li><i class="fas fa-clipboard-check"></i> 12/05 - Tarea a entregar: tablas de verdad</li>
-                        <li><i class="fas fa-clipboard-check"></i> 12/05 - Tarea a entregar: teoremas y propiedades</li>
-                    </ul>
-                </div>
-                
-                <div class="task-group">
-                    <h3>Sistemas de Información</h3>
-                    <ul class="task-list">
-                        <li><i class="fas fa-clipboard-check"></i> 07/05 - Tarea a entregar: estructura organizativa</li>
-                        <li><i class="fas fa-clipboard-check"></i> 01/05 - Tarea a entregar: analisis FODA</li>
-                        <li><i class="fas fa-clipboard-check"></i> 21/05 - Tarea a entregar: entrega trabajo practico grupal</li>
-                    </ul>
-                </div>
-                
-                <div class="task-group">
-                    <h3>Introducción a la Algoritmia</h3>
-                    <ul class="task-list">
-                        <li><i class="fas fa-clipboard-check"></i> 29/04 - Tarea a entregar: programa python</li>
-                        <li><i class="fas fa-clipboard-check"></i> 15/05 - Tarea a entregar: ejercicios arrays</li>
-                        <li><i class="fas fa-clipboard-check"></i> 22/05 - Tarea a entregar: Resolución de pseudocodigo</li>
-                    </ul>
-                </div>
-                
-                <div class="task-group">
-                    <h3>Marketing</h3>
-                    <ul class="task-list">
-                        <li><i class="fas fa-clipboard-check"></i> 28/04 - Tarea a entregar: implemetacion del marketing</li>
-                        <li><i class="fas fa-clipboard-check"></i> 05/05 - Tarea a entregar: Estrategias de marketing digital</li>
-                        <li><i class="fas fa-clipboard-check"></i> 23/05 - Tarea a entregar: esquemas marketing</li>
-                    </ul>
-                </div>
-                
-                <div class="task-group">
-                    <h3>Diseño y Desarrollo Web</h3>
-                    <ul class="task-list">
-                        <li><i class="fas fa-clipboard-check"></i> 25/05 - Tarea a entregar: pagina web gimnasio</li>
-                        <li><i class="fas fa-clipboard-check"></i> 25/05 - Tarea a entregar: pagina starwars</li>
-                        <li><i class="fas fa-clipboard-check"></i> 27/05 - Tarea a entregar: actividad parcial obligatoria</li>
-                    </ul>
-                </div>
+    <body class="min-h-screen flex flex-col items-center bg-[url(img/fondo.png)]"> 
+         
+        <nav class="flex flex-row flex-nowrap justify-between content-center bg-zinc-800 w-full border-b-4 border-zinc-600">
+
+            <header class="text-4xl font-thin p-5 text-slate-100">Mi pagina web</header>          
+
+            <div class="p-5 content-center space-x-8">
+                <a href="index.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Home</a>
+                <a href="avisos.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Avisos</a>
+                <a href="sobre mi.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Sobre-mi</a>
+                <a href="materias.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Materias-2025</a>
+                <a href="contacto.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-zinc-600 active:bg active:bg-zinc-800">Contacto</a>
             </div>
-        </section>
-    </main>
+        </nav>
+        
+        <main class="max-w-6xl w-full flex flex-col align-self-middle flex-grow bg-zinc-100 px-20 py-5 border-r-4 border-l-2 border-zinc-300"> 
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Kidyba Lautaro Agustín - Licenciatura en Sistemas de Información</p>
-        </div>
-    </footer>
+            <section>
+                <h1 class="text-2xl mb-3">Avisos y Recordatorios:</h1>
+                <p>Aca estan disponibles todas las tareas pendientes y fechas importantes organizadas por materia.</p>
 
-    <script>
-        // Script para el menú responsive
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.main-nav').classList.toggle('show');
-        });
-    </script>
-</body>
+                <h2 class="text-l mx-5">Arquitectura de Computadores</h2>
+                <ul class="mb-2">
+                    <li class="list-disc mx-10"> 05/05 - Tarea a entregar: circuitos logicos</li>
+                    <li class="list-disc mx-10"> 12/05 - Tarea a entregar: tablas de verdad</li>
+                    <li class="list-disc mx-10"> 12/05 - Tarea a entregar: teoremas y propiedades</li>
+                </ul>
+
+                <h2 class="text-l mx-5">Sistemas de Información 1</h2>
+                <ul class="mb-2">
+                    <li class="list-disc mx-10"> 07/05 - Tarea a entregar: estructura organizativa</li>
+                    <li class="list-disc mx-10"> 01/05 - Tarea a entregar: analisis FODA</li>
+                    <li class="list-disc mx-10"> 21/05 - Tarea a entregar: entrega trabajo practico grupal</li>
+                </ul>
+
+                <h2 class="text-l mx-5">Introduccion a la algoritmia</h2>
+                <ul class="mb-2">
+                    <li class="list-disc mx-10"> 29/04 - Tarea a entregar: programa python</li>
+                    <li class="list-disc mx-10"> 15/05 - Tarea a entregar: ejercicios arrays</li>
+                    <li class="list-disc mx-10"> 22/05 - Tarea a entregar: Resolución de pseudocodigo</li>
+                </ul>
+
+                <h2 class="text-l mx-5">Marketing</h2>
+                <ul class="mb-2">
+                    <li class="list-disc mx-10"> 28/04 - Tarea a entregar: implemetacion del marketing</li>
+                    <li class="list-disc mx-10"> 05/05 - Tarea a entregar: Estrategias de marketing digital</li>
+                    <li class="list-disc mx-10"> 23/05 - Tarea a entregar: esquemas marketing</li>
+                </ul>
+
+                <h2 class="text-l mx-5">Diseño y desarrollo web</h2>
+                <ul class="mb-2">
+                    <li class="list-disc mx-10"> 25/05 - Tarea a entregar: pagina web gimnasio</li>
+                    <li class="list-disc mx-10"> 25/05 - Tarea a entregar: pagina starwars</li>
+                    <li class="list-disc mx-10"> 27/05 - Tarea a entregar: actividad parcial obligatoria</li>
+                </ul>
+            </section>
+
+        </main>
+        
+
+
+
+
+        <footer class="flex flex-row flex-nowrap justify-around content-center bg-zinc-800 w-full border-t-4 border-zinc-600">
+ 
+            <p class="font-thin  text-center text-white p-5">Prof.Patricia Carina Litovicius <br>
+                Diseño Desarrollo Web (15130)<br>
+                UADE <br>
+            </p>
+        </footer>
+
+
+
+
+
+    </body>
+
+
 </html>
