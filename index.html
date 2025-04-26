@@ -1,42 +1,45 @@
 <!DOCTYPE html>
-
-<html>
-
+<html class="h-full">
     <head>
         <meta charset="utf-8">
         <title>Home</title>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-  <style>
-    body {
-        background-image: url('imagenfondo.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-</style>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            background-image: url('imagenfondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content-container {
+            flex: 1;
+            display: flex;
+        }
+    </style>
 
-         
-
+    <body class="flex flex-col min-h-screen">
         <nav class="flex flex-row flex-nowrap justify-between content-center bg-green-400 w-full border-b-4 border-zinc-600">
-
             <div class="p-4 flex items-center">
-
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-
                 </svg>
-
             </div>
 
-<header class="mx-auto flex items-center"> <h1 class="text-4xl font-bold p-5 text-white tracking-wide uppercase" style="font-family: 'Poppins', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"> Mi Página Web 
-
-</h1> 
-
-</header>        
+            <header class="mx-auto flex items-center">
+                <h1 class="text-4xl font-bold p-5 text-white tracking-wide uppercase" style="font-family: 'Poppins', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    Mi Página Web
+                </h1>
+            </header>
 
             <div class="p-5 content-center space-x-8">
                 <a href="index.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Home</a>
@@ -47,7 +50,7 @@
             </div>
         </nav>
 
-          <div class="w-full flex flex-row max-w-6xl">
+        <div class="content-container flex-grow flex w-full">
             <div class="w-16 bg-gradient-to-b from-green-500 to-green-700 flex flex-col items-center py-8">
                 <div class="w-8 h-8 rounded-full bg-white mb-12 opacity-70"></div>
                 <div class="w-10 h-1 bg-white mb-8 rounded opacity-40"></div>
@@ -58,64 +61,58 @@
                 <div class="w-8 h-8 rounded-full bg-white mt-12 opacity-70"></div>
             </div>
        
-        <main class="max-w-6xl w-full flex flex-col align-self-middle flex-grow bg-green-200 px-20 py-5 border-r-4 border-l-2 border-zinc-300"> 
-            
-            <section class="flex flex-col justify-center">
-                <h1 class="text-2xl font-thin py-3">Materias del Cuatrimestre 2025</h1>
-                <p>Estas son las 5 materias que estoy cursando en este cuatrimestre.</p>
+            <main class="flex-grow bg-green-200 px-20 py-5 border-r-4 border-l-2 border-zinc-300"> 
+                <section class="flex flex-col justify-center">
+                    <h1 class="text-2xl font-thin py-3">Materias del Cuatrimestre 2025</h1>
+                    <p>Estas son las 5 materias que estoy cursando en este cuatrimestre.</p>
 
-                <div class="rounded-xl py-2 bg-green-200">
-                    <table class="w-full text-sm text-center ">
-
-
-            <thead class="uppercase bg-green-400 ">
-                <tr>
-                <th class="pb-2 pt-1">Materia</th>
-                <th class="pb-2 pt-1">Modalidad</th>
-                <th class="pb-2  pt-1">Hora</th>
-                <th class="pb-2  pt-1">Dia</th>
-                </tr>
-            </thead>
-        
- <tbody>
-    <tr class="bg-green-200 ">
-    <td class="p-2">Arquitectura de Computadores</td>
-    <td class="p-2">Virtual</td>
-    <td class="p-2">18:30 a 21:00</td>
-    <td class="p-2">Lunes</td>
-         </tr>
-        <tr class="bg-green-200 ">
-            <td class="p-2">Sistemas de Información 1</td>
-            <td class="p-2">Virtual</td>
-            <td class="p-2">18:30 a 21:00</td>
-            <td class="p-2">Martes</td>
-                 </tr>
-                <tr class="bg-green-200 ">
-                    <td class="p-2">Introduccion a la algoritmia</td>
-                    <td class="p-2">Virtual</td>
-                    <td class="p-2">18:30 a 21:00</td>
-                    <td class="p-2">Miercoles</td>
-                        </tr>
-                        <tr class="bg-green-200 ">
-                            <td class="p-2">Marketing</td>
-                            <td class="p-2">Virtual</td>
-                            <td class="p-2">18:30 a 21:00</td>
-                            <td class="p-2">Jueves</td>
-                                 </tr>
-                                <tr class="bg-green-200 ">
-                                   <td class="p-2">Diseño y Desarrollo Web</td>
-                                   <td class="p-2">Virtual</td>
-                                   <td class="p-2">18:30 a 21:00</td>
-                                   <td class="p-2">Viernes</td>
-                                 </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-            </section>
-
-        </main>
-        
+                    <div class="rounded-xl py-2 bg-green-200">
+                        <table class="w-full text-sm text-center">
+                            <thead class="uppercase bg-green-400">
+                                <tr>
+                                    <th class="pb-2 pt-1">Materia</th>
+                                    <th class="pb-2 pt-1">Modalidad</th>
+                                    <th class="pb-2 pt-1">Hora</th>
+                                    <th class="pb-2 pt-1">Dia</th>
+                                </tr>
+                            </thead>
+                    
+                            <tbody>
+                                <tr class="bg-green-200">
+                                    <td class="p-2">Arquitectura de Computadores</td>
+                                    <td class="p-2">Virtual</td>
+                                    <td class="p-2">18:30 a 21:00</td>
+                                    <td class="p-2">Lunes</td>
+                                </tr>
+                                <tr class="bg-green-200">
+                                    <td class="p-2">Sistemas de Información 1</td>
+                                    <td class="p-2">Virtual</td>
+                                    <td class="p-2">18:30 a 21:00</td>
+                                    <td class="p-2">Martes</td>
+                                </tr>
+                                <tr class="bg-green-200">
+                                    <td class="p-2">Introduccion a la algoritmia</td>
+                                    <td class="p-2">Virtual</td>
+                                    <td class="p-2">18:30 a 21:00</td>
+                                    <td class="p-2">Miercoles</td>
+                                </tr>
+                                <tr class="bg-green-200">
+                                    <td class="p-2">Marketing</td>
+                                    <td class="p-2">Virtual</td>
+                                    <td class="p-2">18:30 a 21:00</td>
+                                    <td class="p-2">Jueves</td>
+                                </tr>
+                                <tr class="bg-green-200">
+                                    <td class="p-2">Diseño y Desarrollo Web</td>
+                                    <td class="p-2">Virtual</td>
+                                    <td class="p-2">18:30 a 21:00</td>
+                                    <td class="p-2">Viernes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
     </body>
-
 </html>
