@@ -2,106 +2,247 @@
 <html class="h-full">
     <head>
         <meta charset="utf-8">
-        <title>Avisos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MI PÁGINA WEB | Avisos</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
     </head>
 
     <style>
         html, body {
             height: 100%;
             margin: 0;
+            font-family: 'Poppins', sans-serif;
         }
         body {
-            background-image: url('imagenfondo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: #1a2330;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-        .content-container {
-            flex: 1;
-            display: flex;
+        .wave-bg {
+            position: relative;
+            overflow: visible;
+        }
+        .wave-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+        .active-link {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 9999px;
+        }
+        .sidebar-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 20px 0;
+        }
+        .sidebar-line {
+            width: 20px;
+            height: 2px;
+            background-color: white;
+            margin: 15px 0;
+            opacity: 0.6;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .btn-primary {
+            background-color: #22c55e;
+            color: white;
+            border-radius: 4px;
+            padding: 8px 16px;
+            transition: all 0.3s ease;
+        }
+        footer {
+            position: relative;
+            z-index: 10;
         }
     </style>
 
     <body class="flex flex-col min-h-screen">
-        <nav class="flex flex-row flex-nowrap justify-between content-center bg-green-400 w-full border-b-4 border-zinc-600">
-            <div class="p-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                </svg>
+
+        <header class="bg-green-400 text-white shadow-lg">
+            <div class="container mx-auto flex justify-between items-center px-4 py-3">
+                <div class="flex items-center">
+                    <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
+                </div>
+                <div class="text-center">
+                    <h1 class="text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
+                </div>
+                <nav class="flex items-center space-x-6">
+                    <a href="index.html" class="text-white hover:text-green-100 px-3 py-1">Home</a>
+                    <a href="avisos.html" class="text-white hover:text-green-100 active-link px-3 py-1">Avisos</a>
+                    <a href="sobremi.html" class="text-white hover:text-green-100 px-3 py-1">Sobre-mi</a>
+                    <a href="materias2025.html" class="text-white hover:text-green-100 px-3 py-1">Materias-2025</a>
+                    <a href="contacto.html" class="text-white hover:text-green-100 bg-green-800 rounded-full px-4 py-1">Contacto</a>
+                </nav>
             </div>
+        </header>
 
-            <header class="mx-auto flex items-center">
-                <h1 class="text-4xl font-bold p-5 text-white tracking-wide uppercase" style="font-family: 'Poppins', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-                    Mi Página Web
-                </h1>
-            </header>
+        <main class="flex-grow wave-bg overflow-auto">
 
-            <div class="p-5 content-center space-x-8">
-                <a href="index.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Home</a>
-                <a href="avisos.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Avisos</a>
-                <a href="sobremi.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Sobre mi</a>
-                <a href="materias2025.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Materias 2025</a>
-                <a href="contacto.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Contacto</a>
+            <svg class="wave-pattern" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#22c55e" fill-opacity="0.2" d="M0,96L48,122.7C96,149,192,203,288,202.7C384,203,480,149,576,122.7C672,96,768,96,864,128C960,160,1056,224,1152,229.3C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+            <svg class="wave-pattern" style="top: 30%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#22c55e" fill-opacity="0.1" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,176C672,181,768,139,864,133.3C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+            <svg class="wave-pattern" style="top: 60%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#22c55e" fill-opacity="0.15" d="M0,224L48,229.3C96,235,192,245,288,240C384,235,480,213,576,181.3C672,149,768,107,864,106.7C960,107,1056,149,1152,154.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+
+            <div class="container mx-auto px-4 py-8 flex overflow-auto">
+                <div class="hidden md:flex flex-col items-center bg-green-500 w-12 justify-center">
+                    <div class="sidebar-dot"></div>
+                    <div class="sidebar-line"></div>
+                    <div class="sidebar-line"></div>
+                    <div class="sidebar-line"></div>
+                    <div class="sidebar-line"></div>
+                    <div class="sidebar-line"></div>
+                    <div class="sidebar-dot"></div>
+                </div>
+
+
+                <div class="flex-grow z-10 pl-6">
+
+                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-8 mb-12 shadow-lg">
+                        <h2 class="text-3xl font-bold text-green-800 mb-4">Avisos y Recordatorios</h2>
+                        <p class="text-gray-700 mb-6"> tareas pendientes y fechas importantes organizadas por materia.</p>
+                    </section>
+
+                    <section class="bg-white bg-opacity-80 rounded-lg p-6 shadow-lg mb-8">
+                        <h2 class="text-2xl font-semibold text-green-700 mb-4 flex items-center">
+                            <i data-feather="book" class="w-5 h-5 mr-2"></i>
+                            Arquitectura de Computadores
+                        </h2>
+                        
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>05/05</strong> - Tarea a entregar: circuitos lógicos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>12/05</strong> - Tarea a entregar: tablas de verdad</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>12/05</strong> - Tarea a entregar: teoremas y propiedades</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="bg-white bg-opacity-80 rounded-lg p-6 shadow-lg mb-8">
+                        <h2 class="text-2xl font-semibold text-green-700 mb-4 flex items-center">
+                            <i data-feather="database" class="w-5 h-5 mr-2"></i>
+                            Sistemas de Información 1
+                        </h2>
+                        
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>07/05</strong> - Tarea a entregar: estructura organizativa</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>01/05</strong> - Tarea a entregar: análisis FODA</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>21/05</strong> - Tarea a entregar: entrega trabajo práctico grupal</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="bg-white bg-opacity-80 rounded-lg p-6 shadow-lg mb-8">
+                        <h2 class="text-2xl font-semibold text-green-700 mb-4 flex items-center">
+                            <i data-feather="code" class="w-5 h-5 mr-2"></i>
+                            Introducción a la algoritmia
+                        </h2>
+                        
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>29/04</strong> - Tarea a entregar: programa Python</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>15/05</strong> - Tarea a entregar: ejercicios arrays</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>22/05</strong> - Tarea a entregar: Resolución de pseudocódigo</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="bg-white bg-opacity-80 rounded-lg p-6 shadow-lg mb-8">
+                        <h2 class="text-2xl font-semibold text-green-700 mb-4 flex items-center">
+                            <i data-feather="shopping-bag" class="w-5 h-5 mr-2"></i>
+                            Marketing
+                        </h2>
+                        
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>28/04</strong> - Tarea a entregar: implementación del marketing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>05/05</strong> - Tarea a entregar: Estrategias de marketing digital</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>23/05</strong> - Tarea a entregar: esquemas marketing</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="bg-white bg-opacity-80 rounded-lg p-6 shadow-lg">
+                        <h2 class="text-2xl font-semibold text-green-700 mb-4 flex items-center">
+                            <i data-feather="layout" class="w-5 h-5 mr-2"></i>
+                            Diseño y desarrollo web
+                        </h2>
+                        
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>25/05</strong> - Tarea a entregar: página web gimnasio</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>25/05</strong> - Tarea a entregar: página starwars</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span><strong>27/05</strong> - Tarea a entregar: actividad parcial obligatoria</span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
             </div>
-        </nav>
-
-        <div class="content-container flex-grow flex w-full">
-            <div class="w-16 bg-gradient-to-b from-green-500 to-green-700 flex flex-col items-center py-8">
-                <div class="w-8 h-8 rounded-full bg-white mb-12 opacity-70"></div>
-                <div class="w-10 h-1 bg-white mb-8 rounded opacity-40"></div>
-                <div class="w-6 h-1 bg-white mb-8 rounded opacity-40"></div>
-                <div class="w-10 h-1 bg-white mb-8 rounded opacity-40"></div>
-                <div class="w-6 h-1 bg-white mb-8 rounded opacity-40"></div>
-                <div class="w-10 h-1 bg-white mb-8 rounded opacity-40"></div>
-                <div class="w-8 h-8 rounded-full bg-white mt-12 opacity-70"></div>
-            </div>
-       
-            <main class="flex-grow bg-green-200 px-20 py-5 border-r-4 border-l-2 border-zinc-300">
-                <section>
-                    <h1 class="text-2xl mb-3">Avisos y Recordatorios:</h1>
-                    <p>Aca estan disponibles todas las tareas pendientes y fechas importantes organizadas por materia.</p>
-
-                    <h2 class="text-l mx-5">Arquitectura de Computadores</h2>
-                    <ul class="mb-2">
-                        <li class="list-disc mx-10"> 05/05 - Tarea a entregar: circuitos logicos</li>
-                        <li class="list-disc mx-10"> 12/05 - Tarea a entregar: tablas de verdad</li>
-                        <li class="list-disc mx-10"> 12/05 - Tarea a entregar: teoremas y propiedades</li>
-                    </ul>
-
-                    <h2 class="text-l mx-5">Sistemas de Información 1</h2>
-                    <ul class="mb-2">
-                        <li class="list-disc mx-10"> 07/05 - Tarea a entregar: estructura organizativa</li>
-                        <li class="list-disc mx-10"> 01/05 - Tarea a entregar: analisis FODA</li>
-                        <li class="list-disc mx-10"> 21/05 - Tarea a entregar: entrega trabajo practico grupal</li>
-                    </ul>
-
-                    <h2 class="text-l mx-5">Introduccion a la algoritmia</h2>
-                    <ul class="mb-2">
-                        <li class="list-disc mx-10"> 29/04 - Tarea a entregar: programa python</li>
-                        <li class="list-disc mx-10"> 15/05 - Tarea a entregar: ejercicios arrays</li>
-                        <li class="list-disc mx-10"> 22/05 - Tarea a entregar: Resolución de pseudocodigo</li>
-                    </ul>
-
-                    <h2 class="text-l mx-5">Marketing</h2>
-                    <ul class="mb-2">
-                        <li class="list-disc mx-10"> 28/04 - Tarea a entregar: implemetacion del marketing</li>
-                        <li class="list-disc mx-10"> 05/05 - Tarea a entregar: Estrategias de marketing digital</li>
-                        <li class="list-disc mx-10"> 23/05 - Tarea a entregar: esquemas marketing</li>
-                    </ul>
-
-                    <h2 class="text-l mx-5">Diseño y desarrollo web</h2>
-                    <ul class="mb-2">
-                        <li class="list-disc mx-10"> 25/05 - Tarea a entregar: pagina web gimnasio</li>
-                        <li class="list-disc mx-10"> 25/05 - Tarea a entregar: pagina starwars</li>
-                        <li class="list-disc mx-10"> 27/05 - Tarea a entregar: actividad parcial obligatoria</li>
-                    </ul>
-                </section>
-            </main>
-        </div>
+        </main>
+        
     </body>
 </html>
