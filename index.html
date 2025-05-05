@@ -81,25 +81,66 @@
             position: relative;
             z-index: 10;
         }
+
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .wave-pattern {
+                opacity: 0.3;
+            }
+            .mobile-menu a {
+                padding: 12px 16px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                text-align: center;
+            }
+        }
     </style>
 
     <body class="flex flex-col min-h-screen">
 
         <header class="bg-green-400 text-white shadow-lg">
-            <div class="container mx-auto flex justify-between items-center px-4 py-3">
-                <div class="flex items-center">
-                    <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
+            <div class="container mx-auto px-4 py-3">
+
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
+                    </div>
+                    <div class="text-center">
+                        <h1 class="text-xl md:text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
+                    </div>
+
+                    <nav class="hidden md:flex items-center space-x-2 lg:space-x-6">
+                        <a href="index.html" class="text-white hover:text-green-100 active-link px-2 py-1 md:px-3 md:py-1">Home</a>
+                        <a href="avisos.html" class="text-white hover:text-green-100 px-2 py-1 md:px-3 md:py-1">Avisos</a>
+                        <a href="sobremi.html" class="text-white hover:text-green-100 px-2 py-1 md:px-3 md:py-1">Sobre-mi</a>
+                        <a href="materias2025.html" class="text-white hover:text-green-100 px-2 py-1 md:px-3 md:py-1">Materias-2025</a>
+                        <a href="contacto.html" class="text-white hover:text-green-100 bg-green-800 rounded-full px-3 py-1 md:px-4 md:py-1">Contacto</a>
+                    </nav>
+                    
+                    <button id="menuBtn" class="md:hidden text-white focus:outline-none">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
                 </div>
-                <div class="text-center">
-                    <h1 class="text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
+                
+                <div id="mobileMenu" class="mobile-menu md:hidden hidden flex-col mt-3">
+                    <a href="index.html" class="text-white hover:text-green-100 active-link">Home</a>
+                    <a href="avisos.html" class="text-white hover:text-green-100">Avisos</a>
+                    <a href="sobremi.html" class="text-white hover:text-green-100">Sobre-mi</a>
+                    <a href="materias2025.html" class="text-white hover:text-green-100">Materias-2025</a>
+                    <a href="contacto.html" class="text-white hover:text-green-100 bg-green-800 mt-2">Contacto</a>
                 </div>
-                <nav class="flex items-center space-x-6">
-                    <a href="index.html" class="text-white hover:text-green-100 active-link px-3 py-1">Home</a>
-                    <a href="avisos.html" class="text-white hover:text-green-100 px-3 py-1">Avisos</a>
-                    <a href="sobremi.html" class="text-white hover:text-green-100 px-3 py-1">Sobre-mi</a>
-                    <a href="materias2025.html" class="text-white hover:text-green-100 px-3 py-1">Materias-2025</a>
-                    <a href="contacto.html" class="text-white hover:text-green-100 bg-green-800 rounded-full px-4 py-1">Contacto</a>
-                </nav>
             </div>
         </header>
 
@@ -126,35 +167,32 @@
                     <div class="sidebar-dot"></div>
                 </div>
 
+                <div class="flex-grow z-10 pl-0 md:pl-6">
 
-                <div class="flex-grow z-10 pl-6">
-
-                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-8 mb-12 shadow-lg">
-                        <h2 class="text-3xl font-bold text-green-800 mb-4">Bienvenido a Mi Página Web</h2>
-                        <p class="text-gray-700 mb-6"> información sobre mis materias del cuatrimestre, proyectos personales y más.</p>
+                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-4 md:p-8 mb-8 md:mb-12 shadow-lg">
+                        <h2 class="text-2xl md:text-3xl font-bold text-green-800 mb-4">Bienvenido a Mi Página Web</h2>
+                        <p class="text-gray-700 mb-6">Información sobre mis materias del cuatrimestre, proyectos personales y más.</p>
                         <a href="sobremi.html" class="btn-primary">Conoce más sobre mí</a>
                     </section>
 
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-
-                        <div class="card p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-12">
+                        <div class="card p-4 md:p-6">
                             <div class="bg-green-100 p-3 rounded-full inline-block mb-4">
                                 <i data-feather="book-open" class="w-6 h-6 text-green-600"></i>
                             </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Materias 2025</h3>
-                            <p class="text-gray-600 mb-4"> materias que estoy cursando este cuatrimestre y los horarios.</p>
+                            <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">Materias 2025</h3>
+                            <p class="text-gray-600 mb-4">Materias que estoy cursando este cuatrimestre y los horarios.</p>
                             <a href="materias2025.html" class="text-green-600 hover:text-green-800 font-medium flex items-center">
                                 Ver materias
                                 <i data-feather="chevron-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
 
-                        <div class="card p-6">
+                        <div class="card p-4 md:p-6">
                             <div class="bg-green-100 p-3 rounded-full inline-block mb-4">
                                 <i data-feather="bell" class="w-6 h-6 text-green-600"></i>
                             </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Avisos</h3>
+                            <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">Avisos</h3>
                             <p class="text-gray-600 mb-4">Recordatorios y anuncios importantes.</p>
                             <a href="avisos.html" class="text-green-600 hover:text-green-800 font-medium flex items-center">
                                 Ver avisos
@@ -162,65 +200,65 @@
                             </a>
                         </div>
 
-                        <div class="card p-6">
+                        <div class="card p-4 md:p-6">
                             <div class="bg-green-100 p-3 rounded-full inline-block mb-4">
                                 <i data-feather="user" class="w-6 h-6 text-green-600"></i>
                             </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Sobre mí</h3>
+                            <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">Sobre mí</h3>
                             <p class="text-gray-600 mb-4">Si necesitas algo, contactame.</p>
                             <a href="contacto.html" class="text-green-600 hover:text-green-800 font-medium flex items-center">
-                                contactame
+                                Contactame
                                 <i data-feather="chevron-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
                     </div>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-6 shadow-lg mb-8">
-                        <h2 class="text-2xl font-semibold text-green-700 mb-6 flex items-center">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-8">
+                        <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-6 flex items-center">
                             <i data-feather="book" class="w-5 h-5 mr-2"></i>
                             Materias del Cuatrimestre 2025
                         </h2>
                         
                         <div class="overflow-x-auto">
-                            <table class="w-full border-collapse">
+                            <table class="w-full border-collapse text-sm md:text-base">
                                 <thead>
                                     <tr class="bg-green-100">
-                                        <th class="border border-green-300 px-4 py-2 text-green-800">MATERIA</th>
-                                        <th class="border border-green-300 px-4 py-2 text-green-800">MODALIDAD</th>
-                                        <th class="border border-green-300 px-4 py-2 text-green-800">HORA</th>
-                                        <th class="border border-green-300 px-4 py-2 text-green-800">DÍA</th>
+                                        <th class="border border-green-300 px-2 md:px-4 py-2 text-green-800">MATERIA</th>
+                                        <th class="border border-green-300 px-2 md:px-4 py-2 text-green-800">MODALIDAD</th>
+                                        <th class="border border-green-300 px-2 md:px-4 py-2 text-green-800">HORA</th>
+                                        <th class="border border-green-300 px-2 md:px-4 py-2 text-green-800">DÍA</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="border border-green-200 px-4 py-2">Arquitectura de Computadores</td>
-                                        <td class="border border-green-200 px-4 py-2">Virtual</td>
-                                        <td class="border border-green-200 px-4 py-2">18:30 a 21:00</td>
-                                        <td class="border border-green-200 px-4 py-2">Lunes</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Arquitectura de Computadores</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Virtual</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">18:30 a 21:00</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Lunes</td>
                                     </tr>
                                     <tr class="bg-green-50">
-                                        <td class="border border-green-200 px-4 py-2">Sistemas de Información 1</td>
-                                        <td class="border border-green-200 px-4 py-2">Virtual</td>
-                                        <td class="border border-green-200 px-4 py-2">18:30 a 21:00</td>
-                                        <td class="border border-green-200 px-4 py-2">Martes</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Sistemas de Información 1</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Virtual</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">18:30 a 21:00</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Martes</td>
                                     </tr>
                                     <tr>
-                                        <td class="border border-green-200 px-4 py-2">Introduccion a la algoritimia</td>
-                                        <td class="border border-green-200 px-4 py-2">Virtual</td>
-                                        <td class="border border-green-200 px-4 py-2">18:30 a 21:00</td>
-                                        <td class="border border-green-200 px-4 py-2">Miercoles</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Introduccion a la algoritimia</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Virtual</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">18:30 a 21:00</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Miercoles</td>
                                     </tr>
                                     <tr class="bg-green-50">
-                                        <td class="border border-green-200 px-4 py-2">Marketing</td>
-                                        <td class="border border-green-200 px-4 py-2">Virtual</td>
-                                        <td class="border border-green-200 px-4 py-2">18:30 a 21:00</td>
-                                        <td class="border border-green-200 px-4 py-2">Jueves</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Marketing</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Virtual</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">18:30 a 21:00</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Jueves</td>
                                     </tr>
                                     <tr>
-                                        <td class="border border-green-200 px-4 py-2">Diseño y Desarrollo Web</td>
-                                        <td class="border border-green-200 px-4 py-2">Virtual</td>
-                                        <td class="border border-green-200 px-4 py-2">18:30 a 21:00</td>
-                                        <td class="border border-green-200 px-4 py-2">Viernes</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Diseño y Desarrollo Web</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Virtual</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">18:30 a 21:00</td>
+                                        <td class="border border-green-200 px-2 md:px-4 py-2">Viernes</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -230,5 +268,18 @@
             </div>
         </main>
 
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                feather.replace();
+                
+                const menuBtn = document.getElementById('menuBtn');
+                const mobileMenu = document.getElementById('mobileMenu');
+                
+                menuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            });
+        </script>
     </body>
 </html>
