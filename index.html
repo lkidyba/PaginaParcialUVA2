@@ -2,117 +2,234 @@
 <html class="h-full">
     <head>
         <meta charset="utf-8">
-        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MI PÁGINA WEB | Home</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
     </head>
 
     <style>
         html, body {
             height: 100%;
             margin: 0;
+            font-family: 'Poppins', sans-serif;
         }
         body {
-            background-image: url('imagenfondo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: #1a2330;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-        .content-container {
-            flex: 1;
-            display: flex;
+        .wave-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .wave-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+        .active-link {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 9999px;
+        }
+        .sidebar-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 20px 0;
+        }
+        .sidebar-line {
+            width: 20px;
+            height: 2px;
+            background-color: white;
+            margin: 15px 0;
+            opacity: 0.6;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .btn-primary {
+            background-color: #22c55e;
+            color: white;
+            border-radius: 4px;
+            padding: 8px 16px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #16a34a;
         }
     </style>
 
     <body class="flex flex-col min-h-screen">
-        <nav class="flex flex-row flex-nowrap justify-between content-center bg-green-400 w-full border-b-4 border-zinc-600">
-            <div class="p-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                </svg>
+
+        <header class="bg-green-400 text-white shadow-lg">
+            <div class="container mx-auto flex justify-between items-center px-4 py-3">
+                <div class="flex items-center">
+                    <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
+                </div>
+                <div class="text-center">
+                    <h1 class="text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
+                </div>
+                <nav class="flex items-center space-x-6">
+                    <a href="index.html" class="text-white hover:text-green-100 active-link px-3 py-1">Home</a>
+                    <a href="avisos.html" class="text-white hover:text-green-100 px-3 py-1">Avisos</a>
+                    <a href="sobremi.html" class="text-white hover:text-green-100 px-3 py-1">Sobre-mi</a>
+                    <a href="materias2025.html" class="text-white hover:text-green-100 px-3 py-1">Materias-2025</a>
+                    <a href="contacto.html" class="text-white hover:text-green-100 bg-green-800 rounded-full px-4 py-1">Contacto</a>
+                </nav>
             </div>
+        </header>
 
-            <header class="mx-auto flex items-center">
-                <h1 class="text-4xl font-bold p-5 text-white tracking-wide uppercase" style="font-family: 'Poppins', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-                    Mi Página Web
-                </h1>
-            </header>
+        <main class="flex-grow wave-bg">
 
-            <div class="p-5 content-center space-x-8">
-                <a href="index.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Home</a>
-                <a href="avisos.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Avisos</a>
-                <a href="sobremi.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Sobre mi</a>
-                <a href="materias2025.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Materias 2025</a>
-                <a href="contacto.html" class="align-middle text-slate-100 hover:bg rounded-xl p-1 hover:bg-green-800 active:bg active:bg-zinc-800">Contacto</a>
-            </div>
-        </nav>
+            <svg class="wave-pattern" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#22c55e" fill-opacity="0.2" d="M0,96L48,122.7C96,149,192,203,288,202.7C384,203,480,149,576,122.7C672,96,768,96,864,128C960,160,1056,224,1152,229.3C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+            <svg class="wave-pattern" style="top: 30%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#22c55e" fill-opacity="0.1" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,176C672,181,768,139,864,133.3C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+            <svg class="wave-pattern" style="top: 60%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#22c55e" fill-opacity="0.15" d="M0,224L48,229.3C96,235,192,245,288,240C384,235,480,213,576,181.3C672,149,768,107,864,106.7C960,107,1056,149,1152,154.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
 
-        <div class="content-container flex-grow flex w-full">
-            <div class="w-16 bg-gradient-to-b from-green-500 to-green-700 flex flex-col items-center py-8">
-                <div class="w-8 h-8 rounded-full bg-white mb-12 opacity-70"></div>
-                <div class="w-10 h-1 bg-white mb-8 rounded opacity-40"></div>
-                <div class="w-6 h-1 bg-white mb-8 rounded opacity-40"></div>
-                <div class="w-10 h-1 bg-white mb-8 rounded opacity-40"></div>
-                <div class="w-6 h-1 bg-white mb-8 rounded opacity-40"></div>
-                <div class="w-10 h-1 bg-white mb-8 rounded opacity-40"></div>
-                <div class="w-8 h-8 rounded-full bg-white mt-12 opacity-70"></div>
-            </div>
-       
-            <main class="flex-grow bg-green-200 px-20 py-5 border-r-4 border-l-2 border-zinc-300"> 
-                <section class="flex flex-col justify-center">
-                    <h1 class="text-2xl font-thin py-3">Materias del Cuatrimestre 2025</h1>
-                    <p>Estas son las 5 materias que estoy cursando en este cuatrimestre.</p>
+            <div class="container mx-auto px-4 py-8 flex">
+                <div class="hidden md:flex flex-col items-center bg-green-500 w-12 justify-center">
+                    <div class="sidebar-dot"></div>
+                    <div class="sidebar-line"></div>
+                    <div class="sidebar-line"></div>
+                    <div class="sidebar-line"></div>
+                    <div class="sidebar-line"></div>
+                    <div class="sidebar-line"></div>
+                    <div class="sidebar-dot"></div>
+                </div>
 
-                    <div class="rounded-xl py-2 bg-green-200">
-                        <table class="w-full text-sm text-center">
-                            <thead class="uppercase bg-green-400">
-                                <tr>
-                                    <th class="pb-2 pt-1">Materia</th>
-                                    <th class="pb-2 pt-1">Modalidad</th>
-                                    <th class="pb-2 pt-1">Hora</th>
-                                    <th class="pb-2 pt-1">Dia</th>
-                                </tr>
-                            </thead>
-                    
-                            <tbody>
-                                <tr class="bg-green-200">
-                                    <td class="p-2">Arquitectura de Computadores</td>
-                                    <td class="p-2">Virtual</td>
-                                    <td class="p-2">18:30 a 21:00</td>
-                                    <td class="p-2">Lunes</td>
-                                </tr>
-                                <tr class="bg-green-200">
-                                    <td class="p-2">Sistemas de Información 1</td>
-                                    <td class="p-2">Virtual</td>
-                                    <td class="p-2">18:30 a 21:00</td>
-                                    <td class="p-2">Martes</td>
-                                </tr>
-                                <tr class="bg-green-200">
-                                    <td class="p-2">Introduccion a la algoritmia</td>
-                                    <td class="p-2">Virtual</td>
-                                    <td class="p-2">18:30 a 21:00</td>
-                                    <td class="p-2">Miercoles</td>
-                                </tr>
-                                <tr class="bg-green-200">
-                                    <td class="p-2">Marketing</td>
-                                    <td class="p-2">Virtual</td>
-                                    <td class="p-2">18:30 a 21:00</td>
-                                    <td class="p-2">Jueves</td>
-                                </tr>
-                                <tr class="bg-green-200">
-                                    <td class="p-2">Diseño y Desarrollo Web</td>
-                                    <td class="p-2">Virtual</td>
-                                    <td class="p-2">18:30 a 21:00</td>
-                                    <td class="p-2">Viernes</td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+                <div class="flex-grow z-10 pl-6">
+
+                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-8 mb-12 shadow-lg">
+                        <h2 class="text-3xl font-bold text-green-800 mb-4">Bienvenido a Mi Página Web</h2>
+                        <p class="text-gray-700 mb-6"> información sobre mis materias del cuatrimestre, proyectos personales y más.</p>
+                        <a href="sobremi.html" class="btn-primary">Conoce más sobre mí</a>
+                    </section>
+
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+
+                        <div class="card p-6">
+                            <div class="bg-green-100 p-3 rounded-full inline-block mb-4">
+                                <i data-feather="book-open" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Materias 2025</h3>
+                            <p class="text-gray-600 mb-4"> materias que estoy cursando este cuatrimestre y los horarios.</p>
+                            <a href="materias2025.html" class="text-green-600 hover:text-green-800 font-medium flex items-center">
+                                Ver materias
+                                <i data-feather="chevron-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+
+                        <div class="card p-6">
+                            <div class="bg-green-100 p-3 rounded-full inline-block mb-4">
+                                <i data-feather="bell" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Avisos</h3>
+                            <p class="text-gray-600 mb-4">Recordatorios y anuncios importantes.</p>
+                            <a href="avisos.html" class="text-green-600 hover:text-green-800 font-medium flex items-center">
+                                Ver avisos
+                                <i data-feather="chevron-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+
+                        <div class="card p-6">
+                            <div class="bg-green-100 p-3 rounded-full inline-block mb-4">
+                                <i data-feather="user" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Sobre mí</h3>
+                            <p class="text-gray-600 mb-4">Si necesitas algo, contactame.</p>
+                            <a href="contacto.html" class="text-green-600 hover:text-green-800 font-medium flex items-center">
+                                contactame
+                                <i data-feather="chevron-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
                     </div>
-                </section>
-            </main>
-        </div>
+
+                    <section class="bg-white bg-opacity-80 rounded-lg p-6 shadow-lg">
+                        <h2 class="text-2xl font-semibold text-green-700 mb-6 flex items-center">
+                            <i data-feather="book" class="w-5 h-5 mr-2"></i>
+                            Materias del Cuatrimestre 2025
+                        </h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full border-collapse">
+                                <thead>
+                                    <tr class="bg-green-100">
+                                        <th class="border border-green-300 px-4 py-2 text-green-800">MATERIA</th>
+                                        <th class="border border-green-300 px-4 py-2 text-green-800">MODALIDAD</th>
+                                        <th class="border border-green-300 px-4 py-2 text-green-800">HORA</th>
+                                        <th class="border border-green-300 px-4 py-2 text-green-800">DÍA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-green-200 px-4 py-2">Arquitectura de Computadores</td>
+                                        <td class="border border-green-200 px-4 py-2">Virtual</td>
+                                        <td class="border border-green-200 px-4 py-2">18:30 a 21:00</td>
+                                        <td class="border border-green-200 px-4 py-2">Lunes</td>
+                                    </tr>
+                                    <tr class="bg-green-50">
+                                        <td class="border border-green-200 px-4 py-2">Sistemas de Información 1</td>
+                                        <td class="border border-green-200 px-4 py-2">Virtual</td>
+                                        <td class="border border-green-200 px-4 py-2">18:30 a 21:00</td>
+                                        <td class="border border-green-200 px-4 py-2">Martes</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-green-200 px-4 py-2">Introduccion a la algoritimia</td>
+                                        <td class="border border-green-200 px-4 py-2">Virtual</td>
+                                        <td class="border border-green-200 px-4 py-2">18:30 a 21:00</td>
+                                        <td class="border border-green-200 px-4 py-2">Miercoles</td>
+                                    </tr>
+                                    <tr class="bg-green-50">
+                                        <td class="border border-green-200 px-4 py-2">Marketing</td>
+                                        <td class="border border-green-200 px-4 py-2">Virtual</td>
+                                        <td class="border border-green-200 px-4 py-2">18:30 a 21:00</td>
+                                        <td class="border border-green-200 px-4 py-2">Jueves</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-green-200 px-4 py-2">Diseño y Desarrollo Web</td>
+                                        <td class="border border-green-200 px-4 py-2">Virtual</td>
+                                        <td class="border border-green-200 px-4 py-2">18:30 a 21:00</td>
+                                        <td class="border border-green-200 px-4 py-2">Viernes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                feather.replace();
+            });
+        </script>
     </body>
 </html>
