@@ -101,6 +101,30 @@
         .link-button:hover {
             background-color: #16a34a;
         }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 50;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .mobile-menu.active {
+            display: flex;
+        }
+        @media (max-width: 768px) {
+            .link-button {
+                display: block;
+                margin: 4px 0;
+                text-align: center;
+            }
+        }
     </style>
 
     <body class="flex flex-col min-h-screen">
@@ -111,14 +135,32 @@
                     <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
                 </div>
                 <div class="text-center">
-                    <h1 class="text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
+                    <h1 class="text-lg sm:text-xl md:text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
                 </div>
-                <nav class="flex items-center space-x-6">
+                
+                <button id="mobile-menu-button" class="md:hidden flex items-center">
+                    <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
+                
+                <nav class="hidden md:flex items-center space-x-6">
                     <a href="index.html" class="text-white hover:text-green-100 px-3 py-1">Home</a>
                     <a href="avisos.html" class="text-white hover:text-green-100 px-3 py-1">Avisos</a>
                     <a href="sobremi.html" class="text-white hover:text-green-100 px-3 py-1">Sobre-mi</a>
                     <a href="materias2025.html" class="text-white hover:text-green-100 active-link px-3 py-1">Materias-2025</a>
                     <a href="contacto.html" class="text-white hover:text-green-100 bg-green-800 rounded-full px-4 py-1">Contacto</a>
+                </nav>
+            </div>
+            
+            <div id="mobile-menu" class="mobile-menu">
+                <button id="close-menu-button" class="absolute top-4 right-4 text-white">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+                <nav class="flex flex-col items-center space-y-4">
+                    <a href="index.html" class="text-white hover:text-green-100 px-3 py-2 text-xl">Home</a>
+                    <a href="avisos.html" class="text-white hover:text-green-100 px-3 py-2 text-xl">Avisos</a>
+                    <a href="sobremi.html" class="text-white hover:text-green-100 px-3 py-2 text-xl">Sobre-mi</a>
+                    <a href="materias2025.html" class="text-white hover:text-green-100 active-link px-3 py-2 text-xl">Materias-2025</a>
+                    <a href="contacto.html" class="text-white hover:text-green-100 bg-green-800 rounded-full px-4 py-2 text-xl">Contacto</a>
                 </nav>
             </div>
         </header>
@@ -135,7 +177,7 @@
                 <path fill="#22c55e" fill-opacity="0.15" d="M0,224L48,229.3C96,235,192,245,288,240C384,235,480,213,576,181.3C672,149,768,107,864,106.7C960,107,1056,149,1152,154.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
             </svg>
 
-            <div class="container mx-auto px-4 py-8 flex overflow-auto">
+            <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row overflow-auto">
                 <div class="hidden md:flex flex-col items-center bg-green-500 w-12 justify-center">
                     <div class="sidebar-dot"></div>
                     <div class="sidebar-line"></div>
@@ -146,35 +188,35 @@
                     <div class="sidebar-dot"></div>
                 </div>
 
-                <div class="flex-grow z-10 pl-6">
-                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-8 mb-8 shadow-lg">
-                        <h2 class="text-3xl font-bold text-green-800 mb-4">Materias 2025</h2>
+                <div class="flex-grow z-10 pl-0 md:pl-6">
+                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-4 md:p-8 mb-8 shadow-lg">
+                        <h2 class="text-2xl md:text-3xl font-bold text-green-800 mb-4">Materias 2025</h2>
                         <p class="text-gray-700 mb-4">Listado de materias que estoy cursando este cuatrimestre.</p>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6">
                             <div class="bg-white p-4 rounded-lg shadow">
                                 <div class="flex items-center text-green-700 mb-2">
                                     <i data-feather="book" class="w-5 h-5 mr-2"></i>
                                     <h3 class="font-semibold">Enlaces a Materias:</h3>
                                 </div>
                                 <ul class="space-y-2 pl-4">
-                                    <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43184" class="text-blue-600 hover:text-blue-800 hover:underline flex items-center">
+                                    <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43184" class="text-blue-600 hover:text-blue-800 hover:underline flex items-center flex-wrap">
                                         <i data-feather="chevron-right" class="w-4 h-4 mr-1"></i>
                                         Arquitectura de Computadores
                                     </a></li>
-                                    <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43524" class="text-blue-600 hover:text-blue-800 hover:underline flex items-center">
+                                    <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43524" class="text-blue-600 hover:text-blue-800 hover:underline flex items-center flex-wrap">
                                         <i data-feather="chevron-right" class="w-4 h-4 mr-1"></i>
                                         Sistemas de información
                                     </a></li>
-                                    <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43401" class="text-blue-600 hover:text-blue-800 hover:underline flex items-center">
+                                    <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43401" class="text-blue-600 hover:text-blue-800 hover:underline flex items-center flex-wrap">
                                         <i data-feather="chevron-right" class="w-4 h-4 mr-1"></i>
                                         Fundamentos de informática
                                     </a></li>
-                                    <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43605" class="text-blue-600 hover:text-blue-800 hover:underline flex items-center">
+                                    <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43605" class="text-blue-600 hover:text-blue-800 hover:underline flex items-center flex-wrap">
                                         <i data-feather="chevron-right" class="w-4 h-4 mr-1"></i>
                                         Marketing
                                     </a></li>
-                                    <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43569" class="text-blue-600 hover:text-blue-800 hover:underline flex items-center">
+                                    <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43569" class="text-blue-600 hover:text-blue-800 hover:underline flex items-center flex-wrap">
                                         <i data-feather="chevron-right" class="w-4 h-4 mr-1"></i>
                                         Diseño y Desarrollo Web
                                     </a></li>
@@ -197,10 +239,10 @@
                         </div>
                     </section>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8">
                        
-                        <section class="bg-white bg-opacity-90 rounded-lg p-6 shadow-lg">
-                            <h2 class="text-xl font-semibold text-green-700 mb-4 flex items-center">
+                        <section class="bg-white bg-opacity-90 rounded-lg p-4 md:p-6 shadow-lg">
+                            <h2 class="text-lg md:text-xl font-semibold text-green-700 mb-4 flex items-center">
                                 <i data-feather="calendar" class="w-5 h-5 mr-2"></i>
                                 Fechas de Parciales
                             </h2>
@@ -227,21 +269,21 @@
                             </div>
                         </section>
                         
-                        <section class="bg-white bg-opacity-90 rounded-lg p-6 shadow-lg">
-                            <h2 class="text-xl font-semibold text-green-700 mb-4 flex items-center">
+                        <section class="bg-white bg-opacity-90 rounded-lg p-4 md:p-6 shadow-lg">
+                            <h2 class="text-lg md:text-xl font-semibold text-green-700 mb-4 flex items-center">
                                 <i data-feather="book-open" class="w-5 h-5 mr-2"></i>
                                 Bibliografía
                             </h2>
                             
                             <div class="bg-green-50 p-4 rounded border border-green-200">
                                 <p class="font-medium"> Learning Web Design. 5th edition: </p>
-                                <p class="italic"> https://archive.org/details/o-reilly-jennifer-niederst-robbins-learning-web-design/mode/2up </p>
+                                <p class="italic text-sm md:text-base break-all"> https://archive.org/details/o-reilly-jennifer-niederst-robbins-learning-web-design/mode/2up </p>
                             </div>
                         </section>
                     </div>
 
-                    <section class="bg-white bg-opacity-90 rounded-lg p-6 shadow-lg mb-8">
-                        <h2 class="text-xl font-semibold text-green-700 mb-4 flex items-center">
+                    <section class="bg-white bg-opacity-90 rounded-lg p-4 md:p-6 shadow-lg mb-8">
+                        <h2 class="text-lg md:text-xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="file-text" class="w-5 h-5 mr-2"></i>
                             Actividades UVAs
                         </h2>
@@ -250,32 +292,38 @@
                             <h3 class="font-medium text-green-800 mb-3 border-b border-green-200 pb-1">UVA 1: Introducción al desarrollo web</h3>
                             <ul class="space-y-3">
                                 <li class="uva-item pl-2">
-                                    <div class="flex items-start">
+                                    <div class="flex flex-col sm:flex-row sm:items-start">
                                         <i data-feather="check-circle" class="w-4 h-4 text-green-600 mt-1 mr-2"></i>
                                         <div>
                                             <span>Ejercicio individual: HTML - Introducción :</span>
-                                            <a href="https://github.com/lkidyba/Proyectos-Estudios" class="link-button">Repositorio</a>
-                                            <a href="https://lkidyba.github.io/Proyectos-Estudios/" class="link-button">Sitio</a>
+                                            <div class="flex flex-wrap mt-1 sm:mt-0">
+                                                <a href="https://github.com/lkidyba/Proyectos-Estudios" class="link-button">Repositorio</a>
+                                                <a href="https://lkidyba.github.io/Proyectos-Estudios/" class="link-button">Sitio</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="uva-item pl-2">
-                                    <div class="flex items-start">
+                                    <div class="flex flex-col sm:flex-row sm:items-start">
                                         <i data-feather="check-circle" class="w-4 h-4 text-green-600 mt-1 mr-2"></i>
                                         <div>
                                             <span>Ejercicio individual: HTML - Etiquetas :</span>
-                                            <a href="https://github.com/lkidyba/Proyectos-Estudios" class="link-button">Repositorio</a>
-                                            <a href="https://lkidyba.github.io/Proyectos-Estudios/" class="link-button">Sitio</a>
+                                            <div class="flex flex-wrap mt-1 sm:mt-0">
+                                                <a href="https://github.com/lkidyba/Proyectos-Estudios" class="link-button">Repositorio</a>
+                                                <a href="https://lkidyba.github.io/Proyectos-Estudios/" class="link-button">Sitio</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="uva-item pl-2">
-                                    <div class="flex items-start">
+                                    <div class="flex flex-col sm:flex-row sm:items-start">
                                         <i data-feather="check-circle" class="w-4 h-4 text-green-600 mt-1 mr-2"></i>
                                         <div>
                                             <span>Ejercicio individual: Ejercicio integrador :</span>
-                                            <a href="https://github.com/lkidyba/proyecto-obligatorio" class="link-button">Repositorio</a>
-                                            <a href="https://lkidyba.github.io/proyecto-obligatorio/" class="link-button">Sitio</a>
+                                            <div class="flex flex-wrap mt-1 sm:mt-0">
+                                                <a href="https://github.com/lkidyba/proyecto-obligatorio" class="link-button">Repositorio</a>
+                                                <a href="https://lkidyba.github.io/proyecto-obligatorio/" class="link-button">Sitio</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
@@ -286,52 +334,62 @@
                             <h3 class="font-medium text-green-800 mb-3 border-b border-green-200 pb-1">UVA 2: Diseño de interfaz y Experiencia de Usuario</h3>
                             <ul class="space-y-3">
                                 <li class="uva-item pl-2">
-                                    <div class="flex items-start">
+                                    <div class="flex flex-col sm:flex-row sm:items-start">
                                         <i data-feather="check-circle" class="w-4 h-4 text-green-600 mt-1 mr-2"></i>
                                         <div>
                                             <span>Ejercicio individual: Formato de texto :</span>
-                                            <a href="https://github.com/lkidyba/starwars" class="link-button">Repositorio</a>
-                                            <a href="https://lkidyba.github.io/starwars/" class="link-button">Sitio</a>
+                                            <div class="flex flex-wrap mt-1 sm:mt-0">
+                                                <a href="https://github.com/lkidyba/starwars" class="link-button">Repositorio</a>
+                                                <a href="https://lkidyba.github.io/starwars/" class="link-button">Sitio</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="uva-item pl-2">
-                                    <div class="flex items-start">
+                                    <div class="flex flex-col sm:flex-row sm:items-start">
                                         <i data-feather="check-circle" class="w-4 h-4 text-green-600 mt-1 mr-2"></i>
                                         <div>
                                             <span>Ejercicio individual: Formato de cajas :</span>
-                                            <a href="https://github.com/lkidyba/paginagym" class="link-button">Repositorio</a>
-                                            <a href="https://lkidyba.github.io/paginagym/" class="link-button">Sitio</a>
+                                            <div class="flex flex-wrap mt-1 sm:mt-0">
+                                                <a href="https://github.com/lkidyba/paginagym" class="link-button">Repositorio</a>
+                                                <a href="https://lkidyba.github.io/paginagym/" class="link-button">Sitio</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="uva-item pl-2">
-                                    <div class="flex items-start">
+                                    <div class="flex flex-col sm:flex-row sm:items-start">
                                         <i data-feather="check-circle" class="w-4 h-4 text-green-600 mt-1 mr-2"></i>
                                         <div>
                                             <span>Ejercicio individual: Unidades de medida :</span>
-                                            <a href="https://github.com/lkidyba/restaurante" class="link-button">Repositorio</a>
-                                            <a href="https://lkidyba.github.io/restaurante/" class="link-button">Sitio</a>
+                                            <div class="flex flex-wrap mt-1 sm:mt-0">
+                                                <a href="https://github.com/lkidyba/restaurante" class="link-button">Repositorio</a>
+                                                <a href="https://lkidyba.github.io/restaurante/" class="link-button">Sitio</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="uva-item pl-2">
-                                    <div class="flex items-start">
+                                    <div class="flex flex-col sm:flex-row sm:items-start">
                                         <i data-feather="check-circle" class="w-4 h-4 text-green-600 mt-1 mr-2"></i>
                                         <div>
                                             <span>Ejercicio individual: Grid y Flexbox :</span>
-                                            <a href="https://github.com/lkidyba/galeriaARTE" class="link-button">Repositorio</a>
-                                            <a href="https://lkidyba.github.io/galeriaARTE/" class="link-button">Sitio</a>
+                                            <div class="flex flex-wrap mt-1 sm:mt-0">
+                                                <a href="https://github.com/lkidyba/galeriaARTE" class="link-button">Repositorio</a>
+                                                <a href="https://lkidyba.github.io/galeriaARTE/" class="link-button">Sitio</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="uva-item pl-2">
-                                    <div class="flex items-start">
+                                    <div class="flex flex-col sm:flex-row sm:items-start">
                                         <i data-feather="check-circle" class="w-4 h-4 text-green-600 mt-1 mr-2"></i>
                                         <div>
                                             <span>UVA 2 (entrega obligatoria en el parcial) :</span>
-                                            <a href="https://github.com/lkidyba/PaginaParcialUVA2" class="link-button">Repositorio</a>
-                                            <a href="https://lkidyba.github.io/PaginaParcialUVA2/index.html" class="link-button">Sitio</a>
+                                            <div class="flex flex-wrap mt-1 sm:mt-0">
+                                                <a href="https://github.com/lkidyba/PaginaParcialUVA2" class="link-button">Repositorio</a>
+                                                <a href="https://lkidyba.github.io/PaginaParcialUVA2/index.html" class="link-button">Sitio</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
@@ -342,5 +400,29 @@
             </div>
         </main>
         
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                feather.replace();
+                
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const closeMenuButton = document.getElementById('close-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                
+                if(mobileMenuButton) {
+                    mobileMenuButton.addEventListener('click', function() {
+                        mobileMenu.classList.add('active');
+                    });
+                }
+                
+                if(closeMenuButton) {
+                    closeMenuButton.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
     </body>
 </html>
