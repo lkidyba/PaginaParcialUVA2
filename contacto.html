@@ -91,6 +91,36 @@
         .gradient-background {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.8) 0%, rgba(6, 95, 70, 0.9) 100%);
         }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 50;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+        }
+        
+        @media (max-width: 768px) {
+            .wave-pattern {
+                height: 50%;
+            }
+            .social-icons {
+                text-align: center;
+            }
+            .contact-info-card {
+                margin-top: 1.5rem;
+            }
+        }
     </style>
 
     <body class="flex flex-col min-h-screen">
@@ -101,17 +131,35 @@
                     <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
                 </div>
                 <div class="text-center">
-                    <h1 class="text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
+                    <h1 class="text-xl md:text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
                 </div>
-                <nav class="flex items-center space-x-6">
-                    <a href="index.html" class="text-white hover:text-green-100 px-3 py-1">Home</a>
-                    <a href="avisos.html" class="text-white hover:text-green-100 px-3 py-1">Avisos</a>
-                    <a href="sobremi.html" class="text-white hover:text-green-100 px-3 py-1">Sobre-mi</a>
-                    <a href="materias2025.html" class="text-white hover:text-green-100 px-3 py-1">Materias-2025</a>
-                    <a href="contacto.html" class="text-white hover:text-green-100 active-link bg-green-800 rounded-full px-4 py-1">Contacto</a>
+                
+                <nav class="hidden md:flex items-center space-x-2 lg:space-x-6">
+                    <a href="index.html" class="text-white hover:text-green-100 px-2 lg:px-3 py-1">Home</a>
+                    <a href="avisos.html" class="text-white hover:text-green-100 px-2 lg:px-3 py-1">Avisos</a>
+                    <a href="sobremi.html" class="text-white hover:text-green-100 px-2 lg:px-3 py-1">Sobre-mi</a>
+                    <a href="materias2025.html" class="text-white hover:text-green-100 px-2 lg:px-3 py-1">Materias-2025</a>
+                    <a href="contacto.html" class="text-white hover:text-green-100 active-link bg-green-800 rounded-full px-3 lg:px-4 py-1">Contacto</a>
                 </nav>
+                
+                <button id="menuBtn" class="md:hidden text-white focus:outline-none">
+                    <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
             </div>
         </header>
+
+        <div id="mobileMenu" class="mobile-menu">
+            <button id="closeMenuBtn" class="absolute top-4 right-4 text-white">
+                <i data-feather="x" class="w-8 h-8"></i>
+            </button>
+            <nav class="flex flex-col items-center space-y-6">
+                <a href="index.html" class="text-white text-xl hover:text-green-400 px-3 py-2">Home</a>
+                <a href="avisos.html" class="text-white text-xl hover:text-green-400 px-3 py-2">Avisos</a>
+                <a href="sobremi.html" class="text-white text-xl hover:text-green-400 px-3 py-2">Sobre-mi</a>
+                <a href="materias2025.html" class="text-white text-xl hover:text-green-400 px-3 py-2">Materias-2025</a>
+                <a href="contacto.html" class="text-white text-xl hover:text-green-400 bg-green-800 bg-opacity-30 rounded-full px-6 py-2 mt-4">Contacto</a>
+            </nav>
+        </div>
 
         <main class="flex-grow wave-bg overflow-auto">
 
@@ -126,6 +174,7 @@
             </svg>
 
             <div class="container mx-auto px-4 py-8 flex overflow-auto">
+
                 <div class="hidden md:flex flex-col items-center bg-green-500 w-12 justify-center">
                     <div class="sidebar-dot"></div>
                     <div class="sidebar-line"></div>
@@ -136,15 +185,16 @@
                     <div class="sidebar-dot"></div>
                 </div>
 
-                <div class="flex-grow z-10 pl-6">
-                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-8 mb-8 shadow-lg">
-                        <h2 class="text-3xl font-bold text-green-800 mb-4">Contacto</h2>
+                <div class="flex-grow z-10 md:pl-6">
+                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-4 md:p-8 mb-8 shadow-lg">
+                        <h2 class="text-2xl md:text-3xl font-bold text-green-800 mb-4">Contacto</h2>
                         <p class="text-gray-700 mb-2">Para contactarte conmigo, rellena el siguiente formulario.</p>
                     </section>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        <div class="md:col-span-2 bg-white rounded-lg shadow-lg overflow-hidden">
-                            <div class="px-6 py-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+
+                        <div class="lg:col-span-2 bg-white rounded-lg shadow-lg overflow-hidden">
+                            <div class="px-4 md:px-6 py-6">
                                 <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                                     <i data-feather="mail" class="w-5 h-5 mr-2 text-green-600"></i>
                                     Formulario de contacto
@@ -178,8 +228,8 @@
                             </div>
                         </div>
                         
-                        <div class="card overflow-hidden">
-                            <div class="gradient-background px-5 py-6 text-white">
+                        <div class="card overflow-hidden contact-info-card">
+                            <div class="gradient-background px-4 md:px-5 py-6 text-white">
                                 <h3 class="text-xl font-semibold mb-4 flex items-center">
                                     <i data-feather="info" class="w-5 h-5 mr-2"></i>
                                     Información de contacto
@@ -191,7 +241,7 @@
                                         </div>
                                         <div class="ml-3 text-sm">
                                             <p class="font-medium">Email</p>
-                                            <p class="mt-1">lkidyba@uade.edu.ar</p>
+                                            <p class="mt-1 break-all">lkidyba@uade.edu.ar</p>
                                         </div>
                                     </div>
                                     <div class="flex items-start">
@@ -214,13 +264,13 @@
                                     </div>
                                 </div>
                                 
-                                <div class="mt-6">
+                                <div class="mt-6 social-icons">
                                     <h4 class="text-sm font-medium mb-2">Redes sociales</h4>
                                     <div class="flex space-x-4">
-                                        <a href="https://ar.linkedin.com/in/lautaro-kidyba-b2240b309/en" class="text-white hover:text-gray-200">
+                                        <a href="https://ar.linkedin.com/in/lautaro-kidyba-b2240b309/en" class="text-white hover:text-gray-200" aria-label="LinkedIn">
                                             <i class="fab fa-linkedin text-lg"></i>
                                         </a>
-                                        <a href="https://github.com/lkidyba" class="text-white hover:text-gray-200">
+                                        <a href="https://github.com/lkidyba" class="text-white hover:text-gray-200" aria-label="GitHub">
                                             <i class="fab fa-github text-lg"></i>
                                         </a>
                                     </div>
@@ -232,5 +282,24 @@
             </div>
         </main>
 
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                feather.replace();
+                
+                const menuBtn = document.getElementById('menuBtn');
+                const closeMenuBtn = document.getElementById('closeMenuBtn');
+                const mobileMenu = document.getElementById('mobileMenu');
+                
+                menuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.add('active');
+                });
+                
+                closeMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        </script>
     </body>
+</html>
 </html>
