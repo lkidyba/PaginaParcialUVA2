@@ -14,13 +14,46 @@
             height: 100%;
             margin: 0;
             font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
         }
+        
         body {
             background-color: #1a2330;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
+        
+        body.dark-mode {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        body.dark-mode .card {
+            background-color: rgba(30, 41, 59, 0.9);
+            color: #e2e8f0;
+        }
+        
+        body.dark-mode .bg-green-100 {
+            background-color: rgba(21, 128, 61, 0.2) !important;
+        }
+        
+        body.dark-mode .text-green-800 {
+            color: #86efac !important;
+        }
+        
+        body.dark-mode .text-gray-700 {
+            color: #cbd5e1 !important;
+        }
+        
+        body.dark-mode .text-green-700 {
+            color: #4ade80 !important;
+        }
+        
+        body.dark-mode .bg-white {
+            background-color: rgba(30, 41, 59, 0.8) !important;
+        }
+
         .wave-bg {
             position: relative;
             overflow: visible;
@@ -62,7 +95,7 @@
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
         }
         .card:hover {
             transform: translateY(-5px);
@@ -74,6 +107,36 @@
             padding: 8px 16px;
             transition: all 0.3s ease;
         }
+        
+        .theme-toggle {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .theme-btn {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 2px solid white;
+            background-color: transparent;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .theme-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .theme-btn.active {
+            background-color: white;
+            color: #22c55e;
+        }
+        
         .mobile-menu {
             display: none;
         }
@@ -108,6 +171,9 @@
                 font-size: 1.25rem;
                 text-align: center;
             }
+            .theme-toggle {
+                margin-top: 2rem;
+            }
         }
     </style>
 
@@ -118,6 +184,18 @@
                 <div class="flex items-center">
                     <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
                 </div>
+                
+                <div class="hidden md:flex theme-toggle">
+                    <button id="light-btn" class="theme-btn active">
+                        <i data-feather="sun" class="w-4 h-4"></i>
+                        Claro
+                    </button>
+                    <button id="dark-btn" class="theme-btn">
+                        <i data-feather="moon" class="w-4 h-4"></i>
+                        Oscuro
+                    </button>
+                </div>
+                
                 <div class="text-center">
                     <h1 class="text-xl md:text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
                 </div>
@@ -146,6 +224,17 @@
                 <a href="sobremi.html" class="text-white hover:text-green-100 py-2">Sobre-mi</a>
                 <a href="materias2025.html" class="text-white hover:text-green-100 py-2">Materias-2025</a>
                 <a href="contacto.html" class="text-white hover:text-green-100 bg-green-800 rounded-full px-4 py-2 mt-4">Contacto</a>
+                
+                <div class="theme-toggle">
+                    <button id="light-btn-mobile" class="theme-btn active">
+                        <i data-feather="sun" class="w-4 h-4"></i>
+                        Claro
+                    </button>
+                    <button id="dark-btn-mobile" class="theme-btn">
+                        <i data-feather="moon" class="w-4 h-4"></i>
+                        Oscuro
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -172,15 +261,14 @@
                     <div class="sidebar-dot"></div>
                 </div>
 
-
                 <div class="flex-grow z-10 md:pl-6">
 
-                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-4 md:p-8 mb-8 md:mb-12 shadow-lg">
+                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-4 md:p-8 mb-8 md:mb-12 shadow-lg card">
                         <h2 class="text-2xl md:text-3xl font-bold text-green-800 mb-4">Avisos y Recordatorios</h2>
                         <p class="text-gray-700 mb-6">Tareas pendientes y fechas importantes organizadas por materia.</p>
                     </section>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8 card">
                         <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="book" class="w-5 h-5 mr-2"></i>
                             Arquitectura de Computadores
@@ -202,7 +290,7 @@
                         </ul>
                     </section>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8 card">
                         <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="database" class="w-5 h-5 mr-2"></i>
                             Sistemas de Información 1
@@ -224,7 +312,7 @@
                         </ul>
                     </section>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8 card">
                         <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="code" class="w-5 h-5 mr-2"></i>
                             Introducción a la algoritmia
@@ -246,7 +334,7 @@
                         </ul>
                     </section>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8 card">
                         <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="shopping-bag" class="w-5 h-5 mr-2"></i>
                             Marketing
@@ -268,7 +356,7 @@
                         </ul>
                     </section>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg card">
                         <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="layout" class="w-5 h-5 mr-2"></i>
                             Diseño y desarrollo web
@@ -294,7 +382,6 @@
         </main>
         
         <script>
-            
             document.addEventListener('DOMContentLoaded', function() {
                 feather.replace();
                 
@@ -309,9 +396,39 @@
                 closeMenuButton.addEventListener('click', function() {
                     mobileMenu.classList.remove('mobile-menu-open');
                 });
+                
+                const lightBtnDesktop = document.getElementById('light-btn');
+                const darkBtnDesktop = document.getElementById('dark-btn');
+                const lightBtnMobile = document.getElementById('light-btn-mobile');
+                const darkBtnMobile = document.getElementById('dark-btn-mobile');
+                const body = document.body;
+                
+                function setLightMode() {
+                    body.classList.remove('dark-mode');
+                    lightBtnDesktop.classList.add('active');
+                    darkBtnDesktop.classList.remove('active');
+                    lightBtnMobile.classList.add('active');
+                    darkBtnMobile.classList.remove('active');
+                }
+                
+                function setDarkMode() {
+                    body.classList.add('dark-mode');
+                    lightBtnDesktop.classList.remove('active');
+                    darkBtnDesktop.classList.add('active');
+                    lightBtnMobile.classList.remove('active');
+                    darkBtnMobile.classList.add('active');
+                }
+                
+                lightBtnDesktop.addEventListener('click', setLightMode);
+                darkBtnDesktop.addEventListener('click', setDarkMode);
+                
+                lightBtnMobile.addEventListener('click', setLightMode);
+                darkBtnMobile.addEventListener('click', setDarkMode);
+                
+                setTimeout(() => {
+                    feather.replace();
+                }, 100);
             });
         </script>
-    </body>
-</html>
     </body>
 </html>
