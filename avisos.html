@@ -9,7 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
     </head>
 
-    <style>
+       <style>
         html, body {
             height: 100%;
             margin: 0;
@@ -22,38 +22,47 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background-color 0.3s ease;
         }
         
         body.dark-mode {
             background-color: #0f172a;
-            color: #e2e8f0;
         }
         
         body.dark-mode .card {
             background-color: rgba(30, 41, 59, 0.9);
-            color: #e2e8f0;
+            color: white;
         }
         
         body.dark-mode .bg-green-100 {
-            background-color: rgba(21, 128, 61, 0.2) !important;
-        }
-        
-        body.dark-mode .text-green-800 {
-            color: #86efac !important;
-        }
-        
-        body.dark-mode .text-gray-700 {
-            color: #cbd5e1 !important;
-        }
-        
-        body.dark-mode .text-green-700 {
-            color: #4ade80 !important;
+            background-color: rgba(34, 197, 94, 0.2) !important;
         }
         
         body.dark-mode .bg-white {
-            background-color: rgba(30, 41, 59, 0.8) !important;
+            background-color: rgba(30, 41, 59, 0.9) !important;
+            color: rgb(255, 251, 251);
         }
-
+        
+        body.dark-mode .text-gray-700 {
+            color: #e2e8f0 !important;
+        }
+        
+        body.dark-mode .text-gray-600 {
+            color: #cbd5e1 !important;
+        }
+        
+        body.dark-mode .text-gray-800 {
+            color: #f1f5f9 !important;
+        }
+        
+        body.dark-mode .border-green-200 {
+            border-color: rgba(34, 197, 94, 0.3) !important;
+        }
+        
+        body.dark-mode .border-green-300 {
+            border-color: rgba(34, 197, 94, 0.5) !important;
+        }
+        
         .wave-bg {
             position: relative;
             overflow: visible;
@@ -95,7 +104,7 @@
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            transition: all 0.3s ease;
         }
         .card:hover {
             transform: translateY(-5px);
@@ -107,72 +116,86 @@
             padding: 8px 16px;
             transition: all 0.3s ease;
         }
-        
-        .theme-toggle {
-            display: flex;
-            gap: 8px;
-            align-items: center;
+        .btn-primary:hover {
+            background-color: #16a34a;
         }
         
         .theme-btn {
-            padding: 6px 12px;
-            border-radius: 20px;
-            border: 2px solid white;
-            background-color: transparent;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
-            font-size: 14px;
-            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 6px;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
         }
         
         .theme-btn:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.3);
         }
         
         .theme-btn.active {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9);
             color: #22c55e;
+            font-weight: 600;
         }
         
+        footer {
+            position: relative;
+            z-index: 10;
+        }
+
         .mobile-menu {
             display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(34, 197, 94, 0.95);
+            z-index: 1000;
+            padding: 20px;
         }
-        .mobile-menu-open {
-            display: block;
+        
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .mobile-menu-links a {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
         
         @media (max-width: 768px) {
             .desktop-menu {
                 display: none;
             }
-            .mobile-menu-button {
+            .mobile-menu-btn {
                 display: block;
             }
-            .mobile-menu.mobile-menu-open {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: #22c55e;
-                z-index: 50;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+            .wave-pattern {
+                opacity: 0.3;
             }
-            .mobile-menu-links {
-                display: flex;
+            .theme-buttons {
                 flex-direction: column;
-                gap: 1.5rem;
-                font-size: 1.25rem;
-                text-align: center;
+                gap: 4px;
             }
-            .theme-toggle {
-                margin-top: 2rem;
+            .theme-btn {
+                font-size: 0.75rem;
+                padding: 4px 8px;
             }
         }
     </style>
@@ -180,25 +203,25 @@
     <body class="flex flex-col min-h-screen">
 
         <header class="bg-green-400 text-white shadow-lg">
-            <div class="container mx-auto flex justify-between items-center px-4 py-3">
-                <div class="flex items-center">
-                    <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
-                </div>
-                
-                <div class="hidden md:flex theme-toggle">
-                    <button id="light-btn" class="theme-btn active">
-                        <i data-feather="sun" class="w-4 h-4"></i>
-                        Claro
-                    </button>
-                    <button id="dark-btn" class="theme-btn">
-                        <i data-feather="moon" class="w-4 h-4"></i>
-                        Oscuro
-                    </button>
-                </div>
-                
-                <div class="text-center">
-                    <h1 class="text-xl md:text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
-                </div>
+            <div class="container mx-auto px-4 py-3">
+
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
+                    <div class="theme-buttons flex gap-2 ml-4">
+                            <button id="lightBtn" class="theme-btn active flex items-center gap-1">
+                                <i data-feather="sun" class="w-3 h-3"></i>
+                                <span class="hidden sm:inline">Claro</span>
+                            </button>
+                            <button id="darkBtn" class="theme-btn flex items-center gap-1">
+                                <i data-feather="moon" class="w-3 h-3"></i>
+                                <span class="hidden sm:inline">Oscuro</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h1 class="text-xl md:text-2xl font-bold tracking-wider uppercase">MI PAGINA WEB</h1>
+                    </div>
                 
                 <nav class="desktop-menu hidden md:flex items-center space-x-3 lg:space-x-6">
                     <a href="index.html" class="text-white hover:text-green-100 px-3 py-1">Home</a>
@@ -215,7 +238,7 @@
         </header>
         
         <div id="mobile-menu" class="mobile-menu">
-            <button id="close-menu-button" class="absolute top-4 right-4 text-white focus:outline-none">
+            <button id="close-menu-button" class="absolute top-4 right-4 text-white focus:outline-none z-10">
                 <i data-feather="x" class="w-6 h-6"></i>
             </button>
             <div class="mobile-menu-links">
@@ -224,17 +247,6 @@
                 <a href="sobremi.html" class="text-white hover:text-green-100 py-2">Sobre-mi</a>
                 <a href="materias2025.html" class="text-white hover:text-green-100 py-2">Materias-2025</a>
                 <a href="contacto.html" class="text-white hover:text-green-100 bg-green-800 rounded-full px-4 py-2 mt-4">Contacto</a>
-                
-                <div class="theme-toggle">
-                    <button id="light-btn-mobile" class="theme-btn active">
-                        <i data-feather="sun" class="w-4 h-4"></i>
-                        Claro
-                    </button>
-                    <button id="dark-btn-mobile" class="theme-btn">
-                        <i data-feather="moon" class="w-4 h-4"></i>
-                        Oscuro
-                    </button>
-                </div>
             </div>
         </div>
 
@@ -261,14 +273,15 @@
                     <div class="sidebar-dot"></div>
                 </div>
 
+
                 <div class="flex-grow z-10 md:pl-6">
 
-                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-4 md:p-8 mb-8 md:mb-12 shadow-lg card">
+                    <section class="bg-green-100 bg-opacity-80 rounded-lg p-4 md:p-8 mb-8 md:mb-12 shadow-lg">
                         <h2 class="text-2xl md:text-3xl font-bold text-green-800 mb-4">Avisos y Recordatorios</h2>
                         <p class="text-gray-700 mb-6">Tareas pendientes y fechas importantes organizadas por materia.</p>
                     </section>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8 card">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8">
                         <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="book" class="w-5 h-5 mr-2"></i>
                             Arquitectura de Computadores
@@ -290,7 +303,7 @@
                         </ul>
                     </section>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8 card">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8">
                         <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="database" class="w-5 h-5 mr-2"></i>
                             Sistemas de Información 1
@@ -312,7 +325,7 @@
                         </ul>
                     </section>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8 card">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8">
                         <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="code" class="w-5 h-5 mr-2"></i>
                             Introducción a la algoritmia
@@ -334,7 +347,7 @@
                         </ul>
                     </section>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8 card">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg mb-6 md:mb-8">
                         <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="shopping-bag" class="w-5 h-5 mr-2"></i>
                             Marketing
@@ -356,7 +369,7 @@
                         </ul>
                     </section>
 
-                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg card">
+                    <section class="bg-white bg-opacity-80 rounded-lg p-4 md:p-6 shadow-lg">
                         <h2 class="text-xl md:text-2xl font-semibold text-green-700 mb-4 flex items-center">
                             <i data-feather="layout" class="w-5 h-5 mr-2"></i>
                             Diseño y desarrollo web
@@ -382,52 +395,65 @@
         </main>
         
         <script>
+            
+            let currentTheme = 'light';
+
+            function setTheme(theme) {
+                const body = document.body;
+                const lightBtn = document.getElementById('lightBtn');
+                const darkBtn = document.getElementById('darkBtn');
+                
+                if (theme === 'dark') {
+                    body.classList.add('dark-mode');
+                    lightBtn.classList.remove('active');
+                    darkBtn.classList.add('active');
+                    currentTheme = 'dark';
+                } else {
+                    body.classList.remove('dark-mode');
+                    darkBtn.classList.remove('active');
+                    lightBtn.classList.add('active');
+                    currentTheme = 'light';
+                }
+            }
+
             document.addEventListener('DOMContentLoaded', function() {
+
                 feather.replace();
                 
+                const lightBtn = document.getElementById('lightBtn');
+                const darkBtn = document.getElementById('darkBtn');
+                
+                if (lightBtn && darkBtn) {
+                    lightBtn.addEventListener('click', () => setTheme('light'));
+                    darkBtn.addEventListener('click', () => setTheme('dark'));
+                }
+                
                 const mobileMenuButton = document.getElementById('mobile-menu-button');
-                const closeMenuButton = document.getElementById('close-menu-button');
                 const mobileMenu = document.getElementById('mobile-menu');
+                const closeMenuButton = document.getElementById('close-menu-button');
                 
-                mobileMenuButton.addEventListener('click', function() {
-                    mobileMenu.classList.add('mobile-menu-open');
-                });
-                
-                closeMenuButton.addEventListener('click', function() {
-                    mobileMenu.classList.remove('mobile-menu-open');
-                });
-                
-                const lightBtnDesktop = document.getElementById('light-btn');
-                const darkBtnDesktop = document.getElementById('dark-btn');
-                const lightBtnMobile = document.getElementById('light-btn-mobile');
-                const darkBtnMobile = document.getElementById('dark-btn-mobile');
-                const body = document.body;
-                
-                function setLightMode() {
-                    body.classList.remove('dark-mode');
-                    lightBtnDesktop.classList.add('active');
-                    darkBtnDesktop.classList.remove('active');
-                    lightBtnMobile.classList.add('active');
-                    darkBtnMobile.classList.remove('active');
+                if (mobileMenuButton && mobileMenu) {
+                    mobileMenuButton.addEventListener('click', function() {
+                        mobileMenu.classList.add('active');
+                        
+                        setTimeout(() => feather.replace(), 10);
+                    });
                 }
                 
-                function setDarkMode() {
-                    body.classList.add('dark-mode');
-                    lightBtnDesktop.classList.remove('active');
-                    darkBtnDesktop.classList.add('active');
-                    lightBtnMobile.classList.remove('active');
-                    darkBtnMobile.classList.add('active');
+                if (closeMenuButton && mobileMenu) {
+                    closeMenuButton.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                    });
                 }
                 
-                lightBtnDesktop.addEventListener('click', setLightMode);
-                darkBtnDesktop.addEventListener('click', setDarkMode);
-                
-                lightBtnMobile.addEventListener('click', setLightMode);
-                darkBtnMobile.addEventListener('click', setDarkMode);
-                
-                setTimeout(() => {
-                    feather.replace();
-                }, 100);
+                const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
+                if (mobileMenuLinks) {
+                    mobileMenuLinks.forEach(link => {
+                        link.addEventListener('click', () => {
+                            mobileMenu.classList.remove('active');
+                        });
+                    });
+                }
             });
         </script>
     </body>
