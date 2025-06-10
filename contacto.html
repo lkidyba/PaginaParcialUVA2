@@ -109,6 +109,44 @@
         .mobile-menu.active {
             display: flex;
         }
+
+        /* Estilos para validación */
+        .input-error {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+        }
+        
+        .input-success {
+            border-color: #22c55e !important;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2) !important;
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .success-message {
+            background-color: #dcfce7;
+            border: 1px solid #22c55e;
+            color: #166534;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .error-general {
+            background-color: #fef2f2;
+            border: 1px solid #ef4444;
+            color: #991b1b;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
         
         @media (max-width: 768px) {
             .wave-pattern {
@@ -199,24 +237,45 @@
                                     <i data-feather="mail" class="w-5 h-5 mr-2 text-green-600"></i>
                                     Formulario de contacto
                                 </h3>
-                                <form class="contact-form space-y-4">
+                                
+                                <!-- Mensaje de éxito -->
+                                <div id="successMessage" class="success-message">
+                                    <div class="flex items-center">
+                                        <i data-feather="check-circle" class="w-5 h-5 mr-2"></i>
+                                        <span>¡Gracias <span id="successName"></span> por tu contacto! En breve le estaré respondiendo.</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Mensaje de error general -->
+                                <div id="errorMessage" class="error-general">
+                                    <div class="flex items-center">
+                                        <i data-feather="alert-circle" class="w-5 h-5 mr-2"></i>
+                                        <span>Por favor, corrija los errores en el formulario antes de enviarlo.</span>
+                                    </div>
+                                </div>
+                                
+                                <form id="contactForm" class="contact-form space-y-4">
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
-                                            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
+                                            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre completo *</label>
                                             <input type="text" id="nombre" name="nombre" autocomplete="name" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 transition duration-150 ease-in-out focus:bg-white">
+                                            <div id="nombreError" class="error-message">El nombre es requerido y debe tener al menos 2 caracteres.</div>
                                         </div>
                                         <div>
-                                            <label for="mail" class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
+                                            <label for="mail" class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico *</label>
                                             <input type="email" id="mail" name="email" autocomplete="email" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 transition duration-150 ease-in-out focus:bg-white">
+                                            <div id="mailError" class="error-message">Ingrese un correo electrónico válido.</div>
                                         </div>
                                     </div>
                                     <div>
-                                        <label for="asunto" class="block text-sm font-medium text-gray-700 mb-1">Asunto (razón)</label>
+                                        <label for="asunto" class="block text-sm font-medium text-gray-700 mb-1">Asunto (razón) *</label>
                                         <input type="text" id="asunto" name="asunto" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 transition duration-150 ease-in-out focus:bg-white">
+                                        <div id="asuntoError" class="error-message">El asunto es requerido y debe tener al menos 3 caracteres.</div>
                                     </div>
                                     <div>
-                                        <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                                        <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">Mensaje *</label>
                                         <textarea id="mensaje" name="mensaje" rows="6" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 transition duration-150 ease-in-out focus:bg-white resize-none"></textarea>
+                                        <div id="mensajeError" class="error-message">El mensaje es requerido y debe tener al menos 10 caracteres.</div>
                                     </div>
                                     <div class="flex items-center">
                                         <button type="submit" class="btn-primary flex items-center">
@@ -224,6 +283,7 @@
                                             Enviar mensaje
                                         </button>
                                     </div>
+                                    <p class="text-sm text-gray-500 mt-2">* Campos obligatorios</p>
                                 </form>
                             </div>
                         </div>
@@ -283,7 +343,6 @@
         </main>
 
         <script>
-
             document.addEventListener('DOMContentLoaded', function() {
                 feather.replace();
                 
@@ -298,8 +357,172 @@
                 closeMenuBtn.addEventListener('click', function() {
                     mobileMenu.classList.remove('active');
                 });
+
+                const form = document.getElementById('contactForm');
+                const successMessage = document.getElementById('successMessage');
+                const errorMessage = document.getElementById('errorMessage');
+                const successName = document.getElementById('successName');
+
+                const nombreField = document.getElementById('nombre');
+                const mailField = document.getElementById('mail');
+                const asuntoField = document.getElementById('asunto');
+                const mensajeField = document.getElementById('mensaje');
+
+                const nombreError = document.getElementById('nombreError');
+                const mailError = document.getElementById('mailError');
+                const asuntoError = document.getElementById('asuntoError');
+                const mensajeError = document.getElementById('mensajeError');
+
+                function validarEmail(email) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return emailRegex.test(email);
+                }
+
+                function mostrarError(campo, mensajeError) {
+                    campo.classList.add('input-error');
+                    campo.classList.remove('input-success');
+                    mensajeError.style.display = 'block';
+                }
+
+                function mostrarExito(campo, mensajeError) {
+                    campo.classList.add('input-success');
+                    campo.classList.remove('input-error');
+                    mensajeError.style.display = 'none';
+                }
+
+                function limpiarEstilos(campo, mensajeError) {
+                    campo.classList.remove('input-error', 'input-success');
+                    mensajeError.style.display = 'none';
+                }
+
+                nombreField.addEventListener('input', function() {
+                    const valor = this.value.trim();
+                    if (valor.length === 0) {
+                        limpiarEstilos(this, nombreError);
+                    } else if (valor.length >= 2) {
+                        mostrarExito(this, nombreError);
+                    } else {
+                        mostrarError(this, nombreError);
+                    }
+                });
+
+                mailField.addEventListener('input', function() {
+                    const valor = this.value.trim();
+                    if (valor.length === 0) {
+                        limpiarEstilos(this, mailError);
+                    } else if (validarEmail(valor)) {
+                        mostrarExito(this, mailError);
+                    } else {
+                        mostrarError(this, mailError);
+                    }
+                });
+
+                asuntoField.addEventListener('input', function() {
+                    const valor = this.value.trim();
+                    if (valor.length === 0) {
+                        limpiarEstilos(this, asuntoError);
+                    } else if (valor.length >= 3) {
+                        mostrarExito(this, asuntoError);
+                    } else {
+                        mostrarError(this, asuntoError);
+                    }
+                });
+
+                mensajeField.addEventListener('input', function() {
+                    const valor = this.value.trim();
+                    if (valor.length === 0) {
+                        limpiarEstilos(this, mensajeError);
+                    } else if (valor.length >= 10) {
+                        mostrarExito(this, mensajeError);
+                    } else {
+                        mostrarError(this, mensajeError);
+                    }
+                });
+
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'none';
+
+                    const nombre = nombreField.value.trim();
+                    const email = mailField.value.trim();
+                    const asunto = asuntoField.value.trim();
+                    const mensaje = mensajeField.value.trim();
+
+                    let formularioValido = true;
+
+                    if (nombre.length === 0) {
+                        mostrarError(nombreField, nombreError);
+                        formularioValido = false;
+                    } else if (nombre.length < 2) {
+                        mostrarError(nombreField, nombreError);
+                        formularioValido = false;
+                    } else {
+                        mostrarExito(nombreField, nombreError);
+                    }
+
+                    if (email.length === 0) {
+                        mostrarError(mailField, mailError);
+                        formularioValido = false;
+                    } else if (!validarEmail(email)) {
+                        mostrarError(mailField, mailError);
+                        formularioValido = false;
+                    } else {
+                        mostrarExito(mailField, mailError);
+                    }
+
+                    if (asunto.length === 0) {
+                        mostrarError(asuntoField, asuntoError);
+                        formularioValido = false;
+                    } else if (asunto.length < 3) {
+                        mostrarError(asuntoField, asuntoError);
+                        formularioValido = false;
+                    } else {
+                        mostrarExito(asuntoField, asuntoError);
+                    }
+
+                    if (mensaje.length === 0) {
+                        mostrarError(mensajeField, mensajeError);
+                        formularioValido = false;
+                    } else if (mensaje.length < 10) {
+                        mostrarError(mensajeField, mensajeError);
+                        formularioValido = false;
+                    } else {
+                        mostrarExito(mensajeField, mensajeError);
+                    }
+
+                    if (!formularioValido) {
+
+                        errorMessage.style.display = 'block';
+
+                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+
+                        successName.textContent = nombre;
+                        successMessage.style.display = 'block';
+                        
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        setTimeout(() => {
+                            form.reset();
+
+                            limpiarEstilos(nombreField, nombreError);
+                            limpiarEstilos(mailField, mailError);
+                            limpiarEstilos(asuntoField, asuntoError);
+                            limpiarEstilos(mensajeField, mensajeError);
+
+                            setTimeout(() => {
+                                successMessage.style.display = 'none';
+                            }, 3000);
+                        }, 2000);
+                    }
+                });
+
+                setTimeout(() => {
+                    feather.replace();
+                }, 100);
             });
         </script>
     </body>
-</html>
 </html>
