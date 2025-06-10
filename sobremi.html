@@ -7,6 +7,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
 
     <style>
@@ -14,6 +15,7 @@
             height: 100%;
             margin: 0;
             font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
         }
         body {
             background-color: #1a2330;
@@ -21,6 +23,65 @@
             flex-direction: column;
             min-height: 100vh;
         }
+        
+        /* Modo Oscuro */
+        body.dark-mode {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        body.dark-mode .profile-card {
+            background-color: rgba(30, 41, 59, 0.9);
+            color: #e2e8f0;
+        }
+        
+        body.dark-mode .card {
+            background-color: rgba(30, 41, 59, 0.9);
+            color: #e2e8f0;
+        }
+        
+        body.dark-mode .bg-green-100 {
+            background-color: rgba(34, 197, 94, 0.2) !important;
+            color: #e2e8f0 !important;
+        }
+        
+        body.dark-mode .text-green-800 {
+            color: #22c55e !important;
+        }
+        
+        body.dark-mode .text-gray-700 {
+            color: #cbd5e1 !important;
+        }
+        
+        body.dark-mode .text-gray-600 {
+            color: #94a3b8 !important;
+        }
+        
+        body.dark-mode .text-gray-800 {
+            color: #e2e8f0 !important;
+        }
+        
+        /* Modo Claro */
+        body.light-mode {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        body.light-mode .profile-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #1e293b;
+        }
+        
+        body.light-mode .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #1e293b;
+        }
+        
+        body.light-mode .bg-green-100 {
+            background-color: rgba(220, 252, 231, 0.8) !important;
+            color: #1e293b !important;
+        }
+        
         .wave-bg {
             position: relative;
             overflow: visible;
@@ -59,10 +120,9 @@
             opacity: 0.6;
         }
         .card {
-            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
         }
         .card:hover {
             transform: translateY(-5px);
@@ -82,9 +142,9 @@
             z-index: 10;
         }
         .profile-card {
-            background-color: rgba(255, 255, 255, 0.92);
             border-radius: 16px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .profile-img {
             border: 4px solid #22c55e;
@@ -109,9 +169,37 @@
             display: flex;
         }
         
+        /* Estilos para los botones de modo */
+        .mode-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 6px 12px;
+            color: white;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .mode-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .mode-btn.active {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        
         @media (max-width: 768px) {
             .wave-pattern {
                 height: 50%;
+            }
+            .mode-buttons {
+                order: -1;
+                margin-bottom: 8px;
             }
         }
     </style>
@@ -120,13 +208,25 @@
 
         <header class="bg-green-400 text-white shadow-lg">
             <div class="container mx-auto flex justify-between items-center px-4 py-3">
-                <div class="flex items-center">
-                    <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
+                <!-- Botones de modo (solo en desktop) -->
+                <div class="hidden md:flex items-center space-x-2 mode-buttons">
+                    <button id="lightModeBtn" class="mode-btn active">
+                        <i data-feather="sun" class="w-4 h-4"></i>
+                        Claro
+                    </button>
+                    <button id="darkModeBtn" class="mode-btn">
+                        <i data-feather="moon" class="w-4 h-4"></i>
+                        Oscuro
+                    </button>
                 </div>
-                <div class="text-center">
+                
+                <!-- Logo central -->
+                <div class="flex items-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+                    <i data-feather="edit-3" class="w-6 h-6 mr-2"></i>
                     <h1 class="text-xl md:text-2xl font-bold tracking-wider uppercase">MI PÁGINA WEB</h1>
                 </div>
                 
+                <!-- Navegación desktop -->
                 <nav class="hidden md:flex items-center space-x-2 lg:space-x-6">
                     <a href="index.html" class="text-white hover:text-green-100 px-2 lg:px-3 py-1">Home</a>
                     <a href="avisos.html" class="text-white hover:text-green-100 px-2 lg:px-3 py-1">Avisos</a>
@@ -135,8 +235,21 @@
                     <a href="contacto.html" class="text-white hover:text-green-100 bg-green-800 rounded-full px-3 lg:px-4 py-1">Contacto</a>
                 </nav>
                 
+                <!-- Botón menú móvil -->
                 <button id="menuBtn" class="md:hidden text-white focus:outline-none">
                     <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Botones de modo para móvil -->
+            <div class="md:hidden flex justify-center space-x-2 pb-3 mode-buttons">
+                <button id="lightModeBtnMobile" class="mode-btn active">
+                    <i data-feather="sun" class="w-4 h-4"></i>
+                    Claro
+                </button>
+                <button id="darkModeBtnMobile" class="mode-btn">
+                    <i data-feather="moon" class="w-4 h-4"></i>
+                    Oscuro
                 </button>
             </div>
         </header>
@@ -254,21 +367,57 @@
         </main>
 
         <script>
+            $(document).ready(function() {
 
-            document.addEventListener('DOMContentLoaded', function() {
                 feather.replace();
                 
-                const menuBtn = document.getElementById('menuBtn');
-                const closeMenuBtn = document.getElementById('closeMenuBtn');
-                const mobileMenu = document.getElementById('mobileMenu');
+                const lightBtnDesktop = $('#lightModeBtn');
+                const darkBtnDesktop = $('#darkModeBtn');
+                const lightBtnMobile = $('#lightModeBtnMobile');
+                const darkBtnMobile = $('#darkModeBtnMobile');
+                const body = $('body');
                 
-                menuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.add('active');
+                function activarModoClaro() {
+                    body.removeClass('dark-mode').addClass('light-mode');
+                    
+                    lightBtnDesktop.addClass('active');
+                    darkBtnDesktop.removeClass('active');
+                    
+                    lightBtnMobile.addClass('active');
+                    darkBtnMobile.removeClass('active');
+                }
+                
+                function activarModoOscuro() {
+                    body.removeClass('light-mode').addClass('dark-mode');
+                    
+                    darkBtnDesktop.addClass('active');
+                    lightBtnDesktop.removeClass('active');
+                    
+                    darkBtnMobile.addClass('active');
+                    lightBtnMobile.removeClass('active');
+                }
+                
+                lightBtnDesktop.on('click', activarModoClaro);
+                darkBtnDesktop.on('click', activarModoOscuro);
+                
+                lightBtnMobile.on('click', activarModoClaro);
+                darkBtnMobile.on('click', activarModoOscuro);
+                
+                const menuBtn = $('#menuBtn');
+                const closeMenuBtn = $('#closeMenuBtn');
+                const mobileMenu = $('#mobileMenu');
+                
+                menuBtn.on('click', function() {
+                    mobileMenu.addClass('active');
                 });
                 
-                closeMenuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.remove('active');
+                closeMenuBtn.on('click', function() {
+                    mobileMenu.removeClass('active');
                 });
+                
+                setTimeout(() => {
+                    feather.replace();
+                }, 100);
             });
         </script>
     </body>
