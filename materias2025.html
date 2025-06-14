@@ -9,7 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
     </head>
 
-    <style>
+      <style>
         html, body {
             height: 100%;
             margin: 0;
@@ -31,7 +31,7 @@
         
         body.dark-mode .card {
             background-color: rgba(30, 41, 59, 0.9);
-            color: white;
+            color: rgb(255, 255, 255);
         }
         
         body.dark-mode .bg-green-100 {
@@ -40,19 +40,19 @@
         
         body.dark-mode .bg-white {
             background-color: rgba(30, 41, 59, 0.9) !important;
-            color: rgb(255, 251, 251);
+            color: rgb(0, 0, 0);
         }
         
         body.dark-mode .text-gray-700 {
-            color: #e2e8f0 !important;
+            color: #fffefe !important;
         }
         
         body.dark-mode .text-gray-600 {
-            color: #cbd5e1 !important;
+            color: #fdfdfd !important;
         }
         
         body.dark-mode .text-gray-800 {
-            color: #f1f5f9 !important;
+            color: #ffffff !important;
         }
         
         body.dark-mode .border-green-200 {
@@ -90,13 +90,13 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background-color: white;
+            background-color: rgb(255, 255, 255);
             margin: 20px 0;
         }
         .sidebar-line {
             width: 20px;
             height: 2px;
-            background-color: white;
+            background-color: rgb(255, 255, 255);
             margin: 15px 0;
             opacity: 0.6;
         }
@@ -512,7 +512,7 @@
         
         <script>
 
-            document.addEventListener('DOMContentLoaded', function() {
+          document.addEventListener('DOMContentLoaded', function() {
                 feather.replace();
                 
                 const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -530,6 +530,35 @@
                         mobileMenu.classList.remove('active');
                     });
                 }
+
+                const lightBtn = document.getElementById('lightBtn');
+                const darkBtn = document.getElementById('darkBtn');
+                const body = document.body;
+
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    body.classList.add('dark-mode');
+                    darkBtn.classList.add('active');
+                    lightBtn.classList.remove('active');
+                } else {
+                    body.classList.remove('dark-mode');
+                    lightBtn.classList.add('active');
+                    darkBtn.classList.remove('active');
+                }
+
+                lightBtn.addEventListener('click', () => {
+                    body.classList.remove('dark-mode');
+                    lightBtn.classList.add('active');
+                    darkBtn.classList.remove('active');
+                    localStorage.setItem('theme', 'light');
+                });
+
+                darkBtn.addEventListener('click', () => {
+                    body.classList.add('dark-mode');
+                    darkBtn.classList.add('active');
+                    lightBtn.classList.remove('active');
+                    localStorage.setItem('theme', 'dark');
+                });
             });
         </script>
     </body>
